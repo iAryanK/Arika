@@ -57,11 +57,38 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    /* background: rgb(183, 180, 234); */
+    background: gray;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: white;
+  }
+
+  /* Render gradient text in every device */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply !scroll-smooth border-border;
   }
   body {
     @apply bg-background text-foreground;
