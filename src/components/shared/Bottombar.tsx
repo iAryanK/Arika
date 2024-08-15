@@ -21,7 +21,7 @@ const Bottombar = () => {
             <Link
               href={link.route}
               key={link.label}
-              className={`relative flex flex-col items-center gap-2 rounded-lg p-2 sm:flex-1 sm:px-2 sm:py-2.5 ${isActive && "bg-violet-800 shadow-[0px_0px_20px_5px_rgba(148,0,211,0.5)]"}`}
+              className={`relative flex flex-col items-center gap-2 rounded-lg p-2 transition-all duration-200 hover:scale-110 sm:flex-1 sm:px-2 sm:py-2.5 ${isActive && "bg-violet-800 shadow-[0px_0px_20px_5px_rgba(148,0,211,0.5)]"}`}
             >
               {link.imgURL}
 

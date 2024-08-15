@@ -1,15 +1,14 @@
 "use client";
 
-import { ChevronFirst, ChevronLast } from "lucide-react";
+import { ChevronFirst, ChevronLast, LogOut } from "lucide-react";
 import Image from "next/image";
 import { createContext, useContext, useState } from "react";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import Link from "next/link";
 import { SidebarLinks } from "@/constants";
 import ThemeToggle from "./ThemeToggle";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Skeleton } from "../ui/skeleton";
 import { Badge } from "../ui/badge";
+import { handleSignOut } from "@/lib/actions/user.action";
 
 type SidebarContextType = {
   expanded: boolean;
@@ -63,11 +62,19 @@ export default function Sidebar({ session }: { session: any }) {
 
           <div className="flex flex-col items-center gap-2 p-3">
             <div
-              className={`flex items-start justify-start ${
-                expanded && "hidden"
-              }`}
+              className={`flex w-full items-start ${expanded ? "ml-[6px] justify-start" : "justify-center"}`}
             >
               <ThemeToggle />
+            </div>
+
+            <div
+              className={`flex w-full items-start ${expanded ? "ml-2 justify-start" : "justify-center"}`}
+            >
+              <LogOut
+                size={42}
+                onClick={() => handleSignOut()}
+                className="cursor-pointer rounded-full p-2 hover:bg-zinc-900"
+              />
             </div>
           </div>
         </nav>
@@ -93,10 +100,10 @@ export function SidebarItem({
   const OneItem = () => {
     return (
       <li
-        className={`group relative my-2 flex cursor-pointer items-center justify-center rounded-md py-2 font-medium transition-colors ${
+        className={`group relative my-2 ml-2 flex cursor-pointer items-center justify-center rounded-md px-2 py-2 transition-all duration-200 hover:scale-110 ${
           pathname === href
-            ? "bg-gradient-to-r from-violet-700 to-violet-800 text-white shadow-[10px_0_20px_-2px_rgba(148,0,211,0.5)]"
-            : "hover:bg-zinc-300 dark:hover:bg-secondary"
+            ? "bg-gradient-to-r from-violet-700 to-violet-800 font-medium text-white shadow-[10px_0_20px_-2px_rgba(148,0,211,0.5)]"
+            : "font-normal hover:bg-zinc-300 dark:hover:bg-secondary"
         }`}
       >
         {icon}

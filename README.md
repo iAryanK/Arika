@@ -9,3 +9,5 @@
 3. Create auth system: Used Auth.js to enable authentication system. Structured to codebase using "route groups". Added nextjs-toploader.
 
 4. Create home dashboard: Created home layout. Fixed auth UIs.
+
+5. Update user model: Updated User model in db by adding username field. Fixed UIs.

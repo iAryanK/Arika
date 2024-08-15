@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { hash } from "bcryptjs";
 import { CredentialsSignin } from "next-auth";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { connectToDB } from "../db";
 import { User } from "@/models/user.model";
 import {
@@ -32,21 +32,31 @@ const login = async (data: LoginValues) => {
 };
 
 const register = async (data: RegisterValues) => {
-  const { firstName, lastName, email, password } = RegisterSchema.parse(data);
+  const { firstName, lastName, username, email, password } =
+    RegisterSchema.parse(data);
 
-  if (!firstName || !email || !password) {
+  if (!firstName || !email || !password || !username) {
     throw new Error("Please fill the necessary fields");
   }
 
   await connectToDB();
 
   // existing user
-  const existingUser = await User.findOne({ email });
+  let existingUser = await User.findOne({ email });
   if (existingUser) return "User already exists !";
+
+  existingUser = await User.findOne({ username });
+  if (existingUser) return "Username already exists !";
 
   const hashedPassword = await hash(password, 12);
 
-  await User.create({ firstName, lastName, email, password: hashedPassword });
+  await User.create({
+    firstName,
+    lastName,
+    email,
+    password: hashedPassword,
+    username,
+  });
   redirect("/login");
 };
 
@@ -56,4 +66,9 @@ const fetchAllUsers = async () => {
   return users;
 };
 
-export { register, login, fetchAllUsers };
+const handleSignOut = async () => {
+  await signOut();
+  redirect("/login");
+};
+
+export { register, login, fetchAllUsers, handleSignOut };

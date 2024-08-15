@@ -6,11 +6,10 @@ export const RegisterSchema = z.object({
   firstName: requiredString,
   lastName: z.string().optional(),
   email: requiredString.email(),
-  // TODO: add username field in User model
-  // username: requiredString.regex(
-  //   /^[a-zA-Z0-9_-]+$/,
-  //   "only letters, numbers, _, and - are allowed",
-  // ),
+  username: requiredString.regex(
+    /^[a-zA-Z0-9_-]+$/,
+    "Only letters, numbers, _, and - are allowed",
+  ),
   password: requiredString.min(8),
 });
 

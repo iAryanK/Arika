@@ -1,5 +1,5 @@
 "use client";
-import { LogIn, LogOut } from "lucide-react";
+import { LogIn, LogOut, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -33,7 +33,7 @@ const Topbar = ({ session }: { session: any }) => {
         <Avatar className={`${session ? "flex" : "hidden"}`}>
           <AvatarImage src={session?.user?.image} />
           <AvatarFallback>
-            <Skeleton className="h-10 w-10 rounded-full" />
+            <User />
           </AvatarFallback>
         </Avatar>
       </div>
