@@ -55,7 +55,7 @@ export function RegisterForm() {
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>FirstName</FormLabel>
+                <FormLabel className="text-white">FirstName</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="Abc" {...field} />
                 </FormControl>
@@ -68,7 +68,7 @@ export function RegisterForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Last Name</FormLabel>
+                <FormLabel className="text-white">Last Name</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="Xyz" {...field} />
                 </FormControl>
@@ -81,7 +81,7 @@ export function RegisterForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-white">Email</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="xyz@mail.com" {...field} />
                 </FormControl>
@@ -95,7 +95,7 @@ export function RegisterForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-white">Password</FormLabel>
                 <FormControl {...field}>
                   <PasswordInput
                     placeholder="••••••••"

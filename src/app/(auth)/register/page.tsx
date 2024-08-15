@@ -14,8 +14,10 @@ const Page = async () => {
 
   return (
     <div className="mx-auto w-full max-w-md rounded-none p-4 md:p-8">
-      <h2 className="text-center text-xl font-bold">Welcome to Arika</h2>
-      <p className="mt-2 max-w-sm text-center text-sm text-neutral-600 dark:text-neutral-300">
+      <h2 className="text-xl font-bold text-white max-md:text-center">
+        Welcome to Arika
+      </h2>
+      <p className="mt-2 text-sm text-neutral-300 max-md:text-center">
         Already have an account?{" "}
         <Link href="/login" className="text-blue-500">
           Login

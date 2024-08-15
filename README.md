@@ -7,3 +7,5 @@
 2. Configure eslint and prettier: For better codebase
 
 3. Create auth system: Used Auth.js to enable authentication system. Structured to codebase using "route groups". Added nextjs-toploader.
+
+4. Create home dashboard: Created home layout. Fixed auth UIs.
