@@ -14,7 +14,6 @@ export default async function HomeLayout({
   const user = session?.user;
   const res = await getUserData({ email: user?.email as string });
   const data = JSON.parse(res);
-  console.log("[DATA]", data);
 
   return (
     <main>

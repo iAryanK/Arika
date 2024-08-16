@@ -16,10 +16,10 @@ const Bottombar = ({ user, session }: { user: any; session: any }) => {
             (pathname.includes(route) && route.length > 1) ||
             pathname === route;
 
-          if (user.username && route === "/profile") {
+          if (user?.username && route === "/profile") {
             route = `/profile/${user.username}`;
           }
-          const imgLink = user.image;
+          const imgLink = user?.image;
 
           return (
             <Link

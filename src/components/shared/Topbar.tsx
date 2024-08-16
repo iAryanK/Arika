@@ -14,7 +14,7 @@ const Topbar = ({ session }: { session: any }) => {
   const routeName = () => {
     if (pathname === "/") return "Arika";
     let formatName = pathname.charAt(1).toUpperCase() + pathname.slice(2);
-    if (pathname.includes("/profile"))
+    if (pathname.includes("/profile/"))
       formatName = formatName.slice(0, formatName.indexOf("/", 1));
     return formatName;
   };

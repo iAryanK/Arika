@@ -1,43 +1,28 @@
-import { Highlight } from "@/components/shared/Highlight";
-import NoResult from "@/components/shared/NoResult";
-import { Button } from "@/components/ui/button";
 import { getSession } from "@/lib/getSession";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { getUserData } from "@/lib/actions/user.action";
+import { redirect } from "next/navigation";
+import { getUserDataByUsername } from "@/lib/actions/user.action";
 
-type Props = {};
+type Props = {
+  params: {
+    username: string;
+  };
+};
 
-const Page = async (props: Props) => {
+const Page = async ({ params }: Props) => {
   const session = await getSession();
   const user = session?.user;
+  if (!user) return redirect("/profile");
 
-  if (user)
-    return (
-      <section className="relative h-full w-full">
-        <BackgroundCircles />
-        <div className="absolute top-0 h-full w-full backdrop-blur-3xl">
-          <UserDetails usermail={user.email as string} />
-        </div>
-      </section>
-    );
+  const username = params.username;
 
   return (
-    <NoResult
-      title="You're not logged in."
-      description={
-        <p>
-          {" "}
-          Login to view and share <br />
-          <Highlight>Your Arika legacy profile 🚀</Highlight> <br /> We maintain
-          your profile across various platforms at a single place, so that you
-          can showcase your consistency better. 💡
-        </p>
-      }
-      link="/login"
-      linkTitle="Log In"
-    />
+    <section className="relative h-full w-full">
+      <BackgroundCircles />
+      <div className="absolute top-0 h-full w-full backdrop-blur-3xl">
+        <UserDetails username={username} />
+      </div>
+    </section>
   );
 };
 
@@ -52,15 +37,14 @@ const BackgroundCircles = () => {
   );
 };
 
-const UserDetails = async ({ usermail }: { usermail: string }) => {
-  const res = await getUserData({ email: usermail });
-  const data = JSON.parse(res);
+const UserDetails = async ({ username }: { username: string }) => {
+  const data = await getUserDataByUsername({ username });
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center space-y-5">
       <div className="flex flex-col items-center justify-center space-y-5">
         <Image
-          src={data.image ? data.image : "/boyface.png"}
+          src={data.image ? data.image : "/avatar.gif"}
           alt="profile"
           width={100}
           height={100}

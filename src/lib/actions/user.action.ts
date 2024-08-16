@@ -74,8 +74,22 @@ const getUserData = async ({ email }: { email: string }) => {
   return JSON.stringify(user);
 };
 
+const getUserDataByUsername = async ({ username }: { username: string }) => {
+  await connectToDB();
+  const user = await User.findOne({ username });
+
+  return user;
+};
+
 const handleSignOut = async () => {
   await signOut();
 };
 
-export { register, login, getAllUsers, getUserData, handleSignOut };
+export {
+  register,
+  login,
+  getAllUsers,
+  getUserData,
+  getUserDataByUsername,
+  handleSignOut,
+};
