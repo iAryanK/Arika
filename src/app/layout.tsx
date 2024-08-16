@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Outfit } from "next/font/google";
+import { IBM_Plex_Mono, Mulish, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import NextTopLoader from "nextjs-toploader";
 
-const inter = Inter({ subsets: ["latin"] });
-const outfit = Outfit({
+const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-space_grotesk",
+  weight: ["300", "400", "500", "600", "700"],
 });
+
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+  weight: ["300", "400", "500", "600", "700", "200", "800", "900", "1000"],
+});
+
 const ibm_plex_mono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-ibm_plex_mono",
@@ -29,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${ibm_plex_mono.variable}`}>
+      <body
+        className={`${mulish.className} ${ibm_plex_mono.variable} ${space_grotesk.variable}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

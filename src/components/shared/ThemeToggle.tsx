@@ -5,7 +5,7 @@ import { Toggle } from "@/components/ui/toggle";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-const ThemeToggle = () => {
+const ThemeToggleButton = () => {
   const [isLight, setIsLight] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -27,20 +27,20 @@ const ThemeToggle = () => {
   };
 
   return (
-    <Toggle className="rounded-full">
+    <Toggle className="rounded-full p-1">
       {!isLight ? (
         <Sun
           onClick={enableLightMode}
-          className="stroke-white transition ease-in-out hover:rotate-45"
+          className="transition ease-in-out hover:rotate-45"
         />
       ) : (
         <Moon
           onClick={enableDarkMode}
-          className="transition ease-in-out hover:rotate-45 max-sm:stroke-white"
+          className="transition ease-in-out hover:rotate-45"
         />
       )}
     </Toggle>
   );
 };
 
-export default ThemeToggle;
+export { ThemeToggleButton };

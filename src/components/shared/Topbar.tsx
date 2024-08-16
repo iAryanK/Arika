@@ -5,12 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Skeleton } from "../ui/skeleton";
+import { UserButtonDropdown } from "./UserButton";
+import { Button } from "../ui/button";
 
 const Topbar = ({ session }: { session: any }) => {
   const pathname = usePathname();
 
   const routeName = () => {
-    if (pathname === "/") return "Home";
+    if (pathname === "/") return "Arika";
     const formatName = pathname.charAt(1).toUpperCase() + pathname.slice(2);
     return formatName;
   };
@@ -26,16 +28,17 @@ const Topbar = ({ session }: { session: any }) => {
           alt="logo"
           quality={100}
         />
-        <p className="max-xs:hidden text-xl font-light">{routeName()}</p>
+        <p className="max-xs:hidden text-xl">{routeName()}</p>
       </Link>
 
-      <div className="flex">
-        <Avatar className={`${session ? "flex" : "hidden"}`}>
-          <AvatarImage src={session?.user?.image} />
-          <AvatarFallback>
-            <User />
-          </AvatarFallback>
-        </Avatar>
+      <div className="hidden hover:cursor-pointer max-sm:flex">
+        {session ? (
+          <UserButtonDropdown session={session} />
+        ) : (
+          <Button className="text-sm">
+            <Link href="/login">Log In</Link>
+          </Button>
+        )}
       </div>
     </nav>
   );

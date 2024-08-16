@@ -102,6 +102,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             email: email,
             image: image,
             authProviderId: id,
+            username: email,
           });
         } catch (error: any) {
           throw new Error("Error while creating user", error);

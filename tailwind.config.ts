@@ -23,7 +23,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        outfit: ["var(--font-outfit)", "sans-serif"],
+        space_grotesk: ["var(--font-space_grotesk)", "sans-serif"],
         "ibm-plex-mono": ["var(--font-ibm_plex_mono)", "monospace"],
       },
       colors: {

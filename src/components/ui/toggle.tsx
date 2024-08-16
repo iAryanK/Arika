@@ -16,7 +16,7 @@ const toggleVariants = cva(
           "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
       },
       size: {
-        default: "h-10 w-10",
+        default: "h-6 w-6",
         sm: "h-9 px-2.5",
         lg: "h-11 px-5",
       },
@@ -25,7 +25,7 @@ const toggleVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 const Toggle = React.forwardRef<

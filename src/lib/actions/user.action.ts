@@ -68,7 +68,6 @@ const fetchAllUsers = async () => {
 
 const handleSignOut = async () => {
   await signOut();
-  redirect("/login");
 };
 
 export { register, login, fetchAllUsers, handleSignOut };
