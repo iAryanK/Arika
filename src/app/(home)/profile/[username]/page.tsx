@@ -53,20 +53,21 @@ const BackgroundCircles = () => {
 };
 
 const UserDetails = async ({ usermail }: { usermail: string }) => {
-  const res = await getUserData(usermail);
+  const res = await getUserData({ email: usermail });
+  const data = JSON.parse(res);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center space-y-5">
       <div className="flex flex-col items-center justify-center space-y-5">
         <Image
-          src={res.image ? res.image : "/logo.png"}
+          src={data.image ? data.image : "/boyface.png"}
           alt="profile"
-          width={96}
-          height={96}
-          className="rounded-full object-contain p-2"
+          width={100}
+          height={100}
+          className="h-20 w-20 rounded-full object-cover"
         />
-        <h1 className="text-2xl font-bold">{res.firstName}</h1>
-        <p className="text-sm text-gray-500">{res.email}</p>
+        <h1 className="text-2xl font-bold">{data.firstName}</h1>
+        <p className="text-sm text-gray-500">{data.email}</p>
       </div>
     </div>
   );

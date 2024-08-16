@@ -12,13 +12,15 @@ export default async function HomeLayout({
 }>) {
   const session = await getSession();
   const user = session?.user;
-  const res = await getUserData(user?.email as string);
+  const res = await getUserData({ email: user?.email as string });
+  const data = JSON.parse(res);
+  console.log("[DATA]", data);
 
   return (
     <main>
       <NextTopLoader showSpinner={false} color="#7f00ff" />
       <div className="flex">
-        <LeftSidebar session={session} username={res.username} />
+        <LeftSidebar session={session} username={data?.username} />
 
         <section className="flex h-screen flex-1 flex-col">
           <Topbar session={session} />
@@ -26,7 +28,7 @@ export default async function HomeLayout({
         </section>
       </div>
 
-      <Bottombar user={res} session={session} />
+      <Bottombar user={data} session={session} />
     </main>
   );
 }

@@ -12,6 +12,7 @@ import {
   RegisterSchema,
   RegisterValues,
 } from "../validations";
+import { NextResponse } from "next/server";
 
 const login = async (data: LoginValues) => {
   const { email, password } = LoginSchema.parse(data);
@@ -66,11 +67,11 @@ const getAllUsers = async () => {
   return users;
 };
 
-const getUserData = async (unique_param: string) => {
+const getUserData = async ({ email }: { email: string }) => {
   await connectToDB();
-  const user = await User.findOne({ unique_param });
+  const user = await User.findOne({ email });
 
-  return user;
+  return JSON.stringify(user);
 };
 
 const handleSignOut = async () => {

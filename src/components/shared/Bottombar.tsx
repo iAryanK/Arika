@@ -28,7 +28,9 @@ const Bottombar = ({ user, session }: { user: any; session: any }) => {
               className={`relative flex flex-col items-center gap-2 rounded-lg p-2 transition-all duration-200 hover:scale-110 sm:flex-1 sm:px-2 sm:py-2.5 ${isActive && "bg-violet-600 shadow-[0px_0px_25px_5px_rgba(148,0,211,0.5)] dark:bg-violet-800"}`}
             >
               <div className={`${isActive && "invert dark:invert-0"}`}>
-                {session && route === `/profile/${user.username}` ? (
+                {session &&
+                user.image &&
+                route === `/profile/${user.username}` ? (
                   <Image
                     src={imgLink}
                     className={`overflow-hidden rounded-full transition-all`}
