@@ -8,7 +8,6 @@ import Link from "next/link";
 import { SidebarLinks } from "@/constants";
 import { ThemeToggleButton } from "./ThemeToggle";
 import { Badge } from "../ui/badge";
-import { handleSignOut } from "@/lib/actions/user.action";
 import ConfirmDialog from "./ConfirmDialog";
 
 type SidebarContextType = {
@@ -17,7 +16,13 @@ type SidebarContextType = {
 
 const SidebarContext = createContext<SidebarContextType>({ expanded: true });
 
-export default function Sidebar({ session }: { session: any }) {
+export default function Sidebar({
+  session,
+  username,
+}: {
+  session: any;
+  username: any;
+}) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -56,6 +61,7 @@ export default function Sidebar({ session }: { session: any }) {
                   icon={item.imgURL}
                   text={item.label}
                   href={item.route}
+                  username={username}
                 />
               ))}
             </div>
@@ -95,14 +101,17 @@ export function SidebarItem({
   text,
   alert,
   href,
+  username,
 }: {
   icon: any;
   text: string;
   alert?: any;
   href?: string;
+  username?: string;
 }) {
   const { expanded } = useContext(SidebarContext);
   const pathname = usePathname();
+  if (username && href === "/profile") href = `/profile/${username}`;
 
   const OneItem = () => {
     return (

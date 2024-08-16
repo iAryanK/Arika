@@ -60,14 +60,21 @@ const register = async (data: RegisterValues) => {
   redirect("/login");
 };
 
-const fetchAllUsers = async () => {
+const getAllUsers = async () => {
   await connectToDB();
   const users = await User.find({});
   return users;
+};
+
+const getUserData = async (unique_param: string) => {
+  await connectToDB();
+  const user = await User.findOne({ unique_param });
+
+  return user;
 };
 
 const handleSignOut = async () => {
   await signOut();
 };
 
-export { register, login, fetchAllUsers, handleSignOut };
+export { register, login, getAllUsers, getUserData, handleSignOut };

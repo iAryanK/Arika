@@ -13,3 +13,5 @@
 5. Update user model: Updated User model in db by adding username field. Fixed UIs.
 
 6. Update google auth: Updated google auth to take email as the default username when the user signs in for the first time. Created alert dialog for logout. Other UI fixes.
+
+7. Create dynamic profile route: For every user, his/her personalized profile route created. Other minor changes.
