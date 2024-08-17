@@ -97,12 +97,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           if (alreadyUser) return true;
 
+          const username = convertEmail(email as string);
+
           await User.create({
             firstName: name,
             email: email,
             image: image,
             authProviderId: id,
-            username: email,
+            username: username,
           });
         } catch (error: any) {
           throw new Error("Error while creating user", error);
@@ -117,3 +119,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
 });
+
+function convertEmail(email: string) {
+  const [username, domain] = email.split("@");
+  const domainWithoutDot = domain.split(".").join("_");
+
+  return `${username}_${domainWithoutDot}`;
+}

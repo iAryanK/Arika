@@ -1,7 +1,21 @@
 import { Highlight } from "@/components/shared/Highlight";
 import NoResult from "@/components/shared/NoResult";
+import { getUserData } from "@/lib/actions/user.action";
+import { getSession } from "@/lib/getSession";
+import { redirect } from "next/navigation";
 
-const Page = () => {
+const Page = async () => {
+  const session = await getSession();
+
+  if (session) {
+    const sessionuser = session?.user;
+    const res = await getUserData({ email: sessionuser?.email as string });
+    const userdata = JSON.parse(res);
+
+    const username = userdata?.username;
+    redirect(`/profile/${username}`);
+  }
+
   return (
     <NoResult
       title="You're not logged in."

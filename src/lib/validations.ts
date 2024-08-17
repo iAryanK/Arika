@@ -21,3 +21,9 @@ export const LoginSchema = z.object({
 });
 
 export type LoginValues = z.infer<typeof LoginSchema>;
+
+export const LeetcodeUsernameSchema = z.object({
+  leetcode_username: requiredString,
+});
+
+export type LeetcodeUsernameValues = z.infer<typeof LeetcodeUsernameSchema>;

@@ -17,6 +17,7 @@ import { ThemeToggleButton } from "./ThemeToggle";
 import { useRouter } from "next/navigation";
 import { handleSignOut } from "@/lib/actions/user.action";
 import ConfirmDialog from "./ConfirmDialog";
+import Image from "next/image";
 
 export function UserButtonDropdown({ session }: { session: any }) {
   const router = useRouter();
@@ -36,7 +37,13 @@ export function UserButtonDropdown({ session }: { session: any }) {
         <Avatar>
           <AvatarImage src={session?.user?.image} />
           <AvatarFallback>
-            <User />
+            <Image
+              src={"/boyface.png"}
+              alt="avatar"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>

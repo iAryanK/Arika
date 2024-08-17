@@ -15,3 +15,5 @@
 6. Update google auth: Updated google auth to take email as the default username when the user signs in for the first time. Created alert dialog for logout. Other UI fixes.
 
 7. Create dynamic profile route: For every user, his/her personalized profile route created. Other minor changes.
+
+8. Create user profile: After some bug fixes, protected user profile is created. Code Modal created in db to store data of coding websites of the user. Leetcode api integrated. CreateLeetCodeData backend implemented. Edit profile Modal UI created. OAuth signIn creates unique username using the mailId itself.

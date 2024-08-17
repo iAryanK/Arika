@@ -12,7 +12,6 @@ import {
   RegisterSchema,
   RegisterValues,
 } from "../validations";
-import { NextResponse } from "next/server";
 
 const login = async (data: LoginValues) => {
   const { email, password } = LoginSchema.parse(data);
