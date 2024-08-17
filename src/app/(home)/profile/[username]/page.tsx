@@ -13,7 +13,6 @@ type Props = {
 const Page = async ({ params }: Props) => {
   const session = await getSession();
   const user = session?.user;
-  if (!user) return redirect("/profile");
 
   const username = params.username;
 

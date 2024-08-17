@@ -12,6 +12,9 @@ import {
   RegisterSchema,
   RegisterValues,
 } from "../validations";
+import { updateUserParams } from "./shared.types";
+import { revalidatePath } from "next/cache";
+import path from "path";
 
 const login = async (data: LoginValues) => {
   const { email, password } = LoginSchema.parse(data);
@@ -84,6 +87,32 @@ const handleSignOut = async () => {
   await signOut();
 };
 
+const UpdateUserData = async (
+  data: updateUserParams,
+  { path }: { path: string },
+) => {
+  try {
+    await connectToDB();
+
+    const { email, username } = data;
+
+    // check if a user with the same email exists or same username exists
+    const existing = await User.find({
+      $or: [{ email }, { username }],
+    });
+
+    if (existing.length > 1) {
+      throw new Error("User already exists with the same email or username");
+    }
+
+    await User.updateOne({ email }, data);
+    revalidatePath(path);
+    return true;
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
 export {
   register,
   login,
@@ -91,4 +120,5 @@ export {
   getUserData,
   getUserDataByUsername,
   handleSignOut,
+  UpdateUserData,
 };

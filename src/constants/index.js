@@ -1,4 +1,4 @@
-import { Brain, BriefcaseBusiness, Home, Smile, SquarePlus, Users } from "lucide-react";
+import { Brain, BriefcaseBusiness, CodeXml, Home, Smile, Users } from "lucide-react";
 
 
 export const SidebarLinks = [
@@ -13,7 +13,7 @@ export const SidebarLinks = [
         label: "Communities",
     },
     {
-        imgURL: <SquarePlus />,
+        imgURL: <CodeXml />,
         route: "/create",
         label: "Create",
     },

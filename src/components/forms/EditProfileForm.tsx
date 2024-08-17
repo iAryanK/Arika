@@ -243,7 +243,7 @@ export function EditProfileForm({
         </LabelInputContainer>
 
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="twitter">X Link Formerly Twitter</Label>
+          <Label htmlFor="twitter">X Link (Formerly Twitter)</Label>
           <Input
             id="twitter"
             name="twitter"

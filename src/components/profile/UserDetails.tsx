@@ -25,7 +25,7 @@ export const UserDetails = async (data: any) => {
               className="h-20 w-20 rounded-full object-cover"
             />
             <div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <h1 className="text-2xl font-bold">{data?.data?.firstName}</h1>
                 {isStudent ? (
                   <Badge className="">Student</Badge>
@@ -39,14 +39,14 @@ export const UserDetails = async (data: any) => {
 
           {user?.email === data?.data?.email && (
             <div className="max-md:hidden">
-              <EditProfileModal />
+              <EditProfileModal user={JSON.stringify(data.data)} />
             </div>
           )}
         </div>
 
         {user?.email === data?.data?.email && (
           <div className="w-full md:hidden">
-            <EditProfileModal />
+            <EditProfileModal user={JSON.stringify(data.data)} />
           </div>
         )}
 

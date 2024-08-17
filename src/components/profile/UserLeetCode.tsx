@@ -16,7 +16,7 @@ export const UserLeetCode = async ({
       <div className="mx-auto mt-2 flex h-fit w-full flex-col space-y-5 rounded-sm sm:m-5 sm:w-1/2">
         <div className="flex w-full items-center">
           <LeetCodeForm
-            sessionmail={sessionuser.email}
+            sessionmail={sessionuser?.email}
             mongoUserId={mongoUserId}
           />
         </div>

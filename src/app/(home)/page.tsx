@@ -6,7 +6,7 @@ import { getSession } from "@/lib/getSession";
 export default async function Home() {
   return (
     <main className="flex h-full w-full items-center justify-center overflow-y-scroll">
-      hi
+      Arika | Under Development
     </main>
   );
 }

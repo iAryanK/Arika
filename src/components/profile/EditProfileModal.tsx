@@ -12,26 +12,28 @@ import { Highlight } from "../shared/Highlight";
 import { EditProfileForm } from "../forms/EditProfileForm";
 import { Button } from "../ui/button";
 import { UserPen } from "lucide-react";
+import SaveUserButton from "./SaveUserButton";
 
-export function EditProfileModal() {
+export function EditProfileModal(user: any) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const userdata = user.user ? JSON.parse(user.user) : null;
 
   const initialvalues = {
-    firstName: "",
-    lastName: "",
-    username: "",
-    email: "",
-    contact: "",
-    bio: "",
-    location: "",
-    institute: "",
-    degree: "",
-    yearOfCompletion: "",
-    resume: "",
-    portfolio: "",
-    github: "",
-    linkedin: "",
-    twitter: "",
+    firstName: userdata?.firstName || "",
+    lastName: userdata?.lastName || "",
+    username: userdata?.username || "",
+    email: userdata?.email || "",
+    contact: userdata?.contact || "",
+    bio: userdata?.bio || "",
+    location: userdata?.location || "",
+    institute: userdata?.institute || "",
+    degree: userdata?.degree || "",
+    yearOfCompletion: userdata?.yearOfCompletion || "",
+    resume: userdata?.resume || "",
+    portfolio: userdata?.portfolio || "",
+    github: userdata?.github || "",
+    linkedin: userdata?.linkedin || "",
+    twitter: userdata?.twitter || "",
   };
 
   const [data, setData] = useState(initialvalues);
@@ -41,7 +43,7 @@ export function EditProfileModal() {
       <Modal>
         <ModalTrigger className="w-full">
           <Button variant={"secondary"} className="w-full">
-            <UserPen className="pr-1" size={20} />
+            <UserPen className="mr-2" size={20} />
             Edit
           </Button>
         </ModalTrigger>
@@ -59,16 +61,20 @@ export function EditProfileModal() {
               data={data}
               setData={setData}
             />
-            <Button className="mx-5 mb-20 sm:hidden">Save</Button>
+            <div className="mx-5 mb-20 sm:hidden">
+              <SaveUserButton
+                isSubmitting={isSubmitting}
+                setIsSubmitting={setIsSubmitting}
+                data={data}
+              />
+            </div>
           </ModalContent>
           <ModalFooter className="max-sm:hidden">
-            {/* <Button 
-            isSubmitting={isSubmitting}
-            setIsSubmitting={setIsSubmitting}
-            data={data}
-            setData={setData}
-            /> */}
-            <Button>Save</Button>
+            <SaveUserButton
+              isSubmitting={isSubmitting}
+              setIsSubmitting={setIsSubmitting}
+              data={data}
+            />
           </ModalFooter>
         </ModalBody>
       </Modal>

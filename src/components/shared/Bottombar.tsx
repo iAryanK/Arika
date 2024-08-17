@@ -25,7 +25,7 @@ const Bottombar = ({ user, session }: { user: any; session: any }) => {
             <Link
               href={route}
               key={label}
-              className={`relative flex flex-col items-center gap-2 rounded-lg p-2 transition-all duration-200 hover:scale-110 sm:flex-1 sm:px-2 sm:py-2.5 ${isActive && "bg-violet-600 shadow-[0px_0px_25px_5px_rgba(148,0,211,0.5)] dark:bg-violet-800"}`}
+              className={`relative flex flex-col items-center gap-1 rounded-lg p-2 transition-all duration-200 hover:scale-110 sm:flex-1 sm:px-2 sm:py-2 ${isActive && "bg-violet-600 shadow-[0px_0px_25px_5px_rgba(148,0,211,0.5)] dark:bg-violet-800"}`}
             >
               <div>
                 {session &&

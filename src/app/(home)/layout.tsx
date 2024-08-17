@@ -1,6 +1,7 @@
 import Bottombar from "@/components/shared/Bottombar";
 import LeftSidebar from "@/components/shared/LeftSidebar";
 import Topbar from "@/components/shared/Topbar";
+import { Toaster } from "@/components/ui/toaster";
 import { getUserData } from "@/lib/actions/user.action";
 import { getSession } from "@/lib/getSession";
 import NextTopLoader from "nextjs-toploader";
@@ -28,6 +29,7 @@ export default async function HomeLayout({
       </div>
 
       <Bottombar user={data} session={session} />
+      <Toaster />
     </main>
   );
 }

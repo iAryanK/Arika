@@ -69,26 +69,10 @@ export default function Sidebar({
 
           <div className="flex flex-col items-center gap-2 p-3">
             <div
-              className={`flex w-full items-start ${expanded ? "ml-[6px] justify-start" : "justify-center"}`}
+              className={`flex w-full items-start ${expanded ? "ml-[16px] justify-start" : "justify-center"}`}
             >
               <ThemeToggleButton />
             </div>
-
-            {session && (
-              <ConfirmDialog
-                title="Are you sure you want to logout?"
-                description="You will need to login again to access your data."
-              >
-                <div
-                  className={`flex w-full items-start ${expanded ? "ml-2 justify-start" : "justify-center"}`}
-                >
-                  <LogOut
-                    size={42}
-                    className="cursor-pointer rounded-full p-2 hover:bg-zinc-300 dark:hover:bg-zinc-900"
-                  />
-                </div>
-              </ConfirmDialog>
-            )}
           </div>
         </nav>
       </aside>

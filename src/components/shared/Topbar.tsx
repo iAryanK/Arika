@@ -1,10 +1,7 @@
 "use client";
-import { LogIn, LogOut, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Skeleton } from "../ui/skeleton";
 import { UserButtonDropdown } from "./UserButton";
 import { Button } from "../ui/button";
 
@@ -33,12 +30,14 @@ const Topbar = ({ session }: { session: any }) => {
         <p className="max-xs:hidden text-xl">{routeName()}</p>
       </Link>
 
-      <div className="hidden hover:cursor-pointer max-sm:flex">
+      <div className="hover:cursor-pointer max-sm:flex">
         {session ? (
           <UserButtonDropdown session={session} />
         ) : (
-          <Button className="text-sm">
-            <Link href="/login">Log In</Link>
+          <Button asChild>
+            <Link href="/login" className="font-space_grotesk">
+              Log In
+            </Link>
           </Button>
         )}
       </div>
