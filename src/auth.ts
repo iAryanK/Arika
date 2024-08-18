@@ -106,6 +106,30 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             authProviderId: id,
             username: username,
           });
+          return true;
+        } catch (error: any) {
+          throw new Error("Error while creating user", error);
+        }
+      }
+
+      if (account?.provider === "github") {
+        try {
+          const { email, name, image, id } = user;
+          await connectToDB();
+          const alreadyUser = await User.findOne({ email });
+
+          if (alreadyUser) return true;
+
+          const username = convertEmail(email as string);
+
+          await User.create({
+            firstName: name,
+            email: email,
+            image: image,
+            authProviderId: id,
+            username: username,
+          });
+          return true;
         } catch (error: any) {
           throw new Error("Error while creating user", error);
         }
