@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,7 +18,7 @@ const Topbar = ({ session }: { session: any }) => {
   };
 
   return (
-    <nav className="top-0 z-10 flex w-full items-center justify-between border-b bg-white/[0.1] p-4 px-6 py-3 dark:bg-black/[0.1]">
+    <nav className="top-0 z-50 flex w-full items-center justify-between border-b bg-white/[0.1] p-4 px-6 py-3 backdrop-blur-lg dark:bg-black/[0.1] max-md:rounded-b-lg">
       <Link href="/" className="flex items-center gap-4">
         <Image
           src={"/logo.png"}

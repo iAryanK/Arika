@@ -65,7 +65,7 @@ const register = async (data: RegisterValues) => {
 
 const getAllUsers = async () => {
   await connectToDB();
-  const users = await User.find({});
+  const users = await User.find({}).populate({ path: "code", model: Code });
   return users;
 };
 
@@ -82,7 +82,6 @@ const getUserDataByUsername = async ({ username }: { username: string }) => {
     path: "code",
     model: Code,
   });
-  console.log("[USER]", user);
 
   return user;
 };

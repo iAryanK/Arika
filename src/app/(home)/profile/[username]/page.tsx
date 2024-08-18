@@ -22,7 +22,7 @@ const Page = async ({ params }: Props) => {
   return (
     <section className="relative h-full w-full overflow-y-scroll">
       <BackgroundCircles />
-      <div className="absolute top-0 flex h-full w-full flex-col gap-2 p-2 backdrop-blur-3xl lg:flex-row lg:justify-between">
+      <div className="custom-scrollbar absolute top-0 flex h-full w-full flex-col gap-2 overflow-y-scroll p-2 pb-20 backdrop-blur-3xl lg:flex-row lg:justify-between">
         <div className="w-full">
           <UserDetails data={userdata} />
 
@@ -39,7 +39,6 @@ const Page = async ({ params }: Props) => {
           </div>
         )}
       </div>
-      <div className="h-[1000px] sm:h-20 md:h-4"></div>
     </section>
   );
 };

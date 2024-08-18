@@ -9,13 +9,13 @@ export const SidebarLinks = [
     },
     {
         imgURL: <Users />,
-        route: "/communities",
-        label: "Communities",
+        route: "/community",
+        label: "Community",
     },
     {
         imgURL: <CodeXml />,
-        route: "/create",
-        label: "Create",
+        route: "/code",
+        label: "Code",
     },
     {
         imgURL: <Brain />,

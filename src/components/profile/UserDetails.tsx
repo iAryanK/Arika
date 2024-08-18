@@ -21,7 +21,7 @@ export const UserDetails = async (data: any) => {
 
   if (mongoUser)
     return (
-      <div className="relative mx-auto mt-2 flex h-fit w-full flex-col space-y-2 rounded-md border p-5">
+      <div className="relative mx-auto mt-2 flex h-fit w-full flex-col space-y-2 rounded-md border p-5 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
         <Banner>
           <Image
             src="/logo.png"
