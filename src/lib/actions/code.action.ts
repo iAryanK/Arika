@@ -26,25 +26,67 @@ const LeetCodeDataAPI = async (leetcode_username: string) => {
   }
 };
 
+const LeetCodeBadgesAPI = async (leetcode_username: string) => {
+  try {
+    const res = await fetch(
+      `https://alfa-leetcode-api.onrender.com/${leetcode_username}/badges`,
+    );
+
+    const data = await res.json();
+
+    if (data.errors) {
+      return Error(data.errors[0].message);
+    } else {
+      return data;
+    }
+  } catch (error) {
+    throw new Error(
+      "Unable to fetch data right now. please try after an hour.",
+    );
+  }
+};
+
 const createLeetcodeData = async (params: createLeetcodeParams) => {
   try {
-    const { email, leetcode_username, owner, path } = params;
+    const { leetcode_username, owner, path } = params;
 
     const leetcodeData: any = await LeetCodeDataAPI(leetcode_username);
+    const leetcodeBadges: any = await LeetCodeBadgesAPI(leetcode_username);
 
     await connectToDB();
 
     const code = await Code.create({
-      owner,
-      leetcode_username,
-      ranking: leetcodeData.ranking,
-      reputation: leetcodeData.reputation,
+      leetcode: {
+        username: leetcode_username,
+        ranking: leetcodeData.ranking,
+        reputation: leetcodeData.reputation,
+      },
     });
 
+    for (let index = 0; index < leetcodeBadges.badges.length; index++) {
+      const badge = leetcodeBadges.badges[index];
+      code.leetcode.badges.push({
+        displayName: badge.displayName,
+        icon: badge.icon,
+        creationDate: badge.creationDate,
+      });
+    }
+
+    for (let index = 0; index < leetcodeBadges.upcomingBadges.length; index++) {
+      const badge = leetcodeBadges.upcomingBadges[index];
+      code.leetcode.upcomingBadges.push({
+        displayName: badge.name,
+        icon: badge.icon,
+      });
+    }
+
+    await code.save();
+
     // update code in user with the id of above code
-    await User.findOneAndUpdate({ owner }, { code: code._id });
+    // await User.findOneAndUpdate({ owner }, { code: code._id });
 
     const user = await User.findById({ _id: owner });
+    user.code = code._id;
 
     if (!user.birthday && leetcodeData.birthday)
       user.birthday = leetcodeData.birthday;
@@ -79,7 +121,7 @@ const createLeetcodeData = async (params: createLeetcodeParams) => {
   } catch (error: any) {
     console.log("[CREATE LEETCODE DATA ERROR]: ", error);
 
-    return "This username has already been taken.";
+    return error.message;
   }
 };
 

@@ -18,6 +18,7 @@ import {
 import { useState, useTransition } from "react";
 import { createLeetcodeData } from "@/lib/actions/code.action";
 import { usePathname } from "next/navigation";
+import { Loader2 } from "lucide-react";
 
 const LeetCodeForm = ({
   sessionmail,
@@ -75,7 +76,7 @@ const LeetCodeForm = ({
                 </FormControl>
                 <FormMessage />
                 {error && (
-                  <p className="rounded-lg bg-zinc-100/[0.5] py-1 pl-2 font-medium text-destructive backdrop-blur-sm dark:bg-zinc-950">
+                  <p className="py-1 pl-2 text-sm font-light">
                     ⚠️ {error?.toString()}
                   </p>
                 )}
@@ -83,8 +84,14 @@ const LeetCodeForm = ({
             )}
           />
 
-          <Button type="submit" className="rounded-l-none">
-            Submit
+          <Button disabled={isPending} type="submit" className="rounded-l-none">
+            {isPending ? (
+              <>
+                <Loader2 className="animate-spin" />
+              </>
+            ) : (
+              <>Submit</>
+            )}
           </Button>
         </form>
       </Form>

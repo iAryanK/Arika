@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { UserDetails } from "@/components/profile/UserDetails";
 import { UserLeetCode } from "@/components/profile/UserLeetCode";
 import { getUserDataByUsername } from "@/lib/actions/user.action";
+import LeetCodeDetails from "@/components/profile/LeetCodeDetails";
 
 type Props = {
   params: {
@@ -21,18 +22,24 @@ const Page = async ({ params }: Props) => {
   return (
     <section className="relative h-full w-full overflow-y-scroll">
       <BackgroundCircles />
-      <div className="absolute top-0 h-full w-full p-2 backdrop-blur-3xl max-sm:mb-96">
-        <UserDetails data={userdata} />
+      <div className="absolute top-0 flex h-full w-full flex-col gap-2 p-2 backdrop-blur-3xl lg:flex-row lg:justify-between">
+        <div className="w-full">
+          <UserDetails data={userdata} />
 
-        {user?.email === userdata?.email && !userdata?.code && (
-          <UserLeetCode
-            usermail={userdata?.email}
-            mongoUserId={JSON.stringify(userdata?._id)}
-          />
+          {user?.email === userdata?.email && !userdata?.code && (
+            <UserLeetCode
+              usermail={userdata?.email}
+              mongoUserId={JSON.stringify(userdata?._id)}
+            />
+          )}
+        </div>
+        {userdata?.code && (
+          <div className="w-full">
+            <LeetCodeDetails leetcodeData={userdata?.code.leetcode} />
+          </div>
         )}
-
-        <div className="h-24"></div>
       </div>
+      <div className="h-[1000px] sm:h-20 md:h-4"></div>
     </section>
   );
 };

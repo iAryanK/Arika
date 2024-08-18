@@ -1,23 +1,50 @@
 import { model, models, Schema, Document } from "mongoose";
 
 export interface ICode extends Document {
-  leetcode_username: string;
-  birthday?: string;
-  ranking?: number;
-  reputation?: number;
-  skillTags?: string[];
+  leetcode: {
+    username: string;
+    ranking?: number;
+    reputation?: number;
+    badges?: [
+      {
+        displayName: string;
+        icon: string;
+        creationDate: string;
+      },
+    ];
+    upcomingBadges?: [
+      {
+        displayName: string;
+        icon: string;
+      },
+    ];
+  };
   owner: Schema.Types.ObjectId;
-  updatedAt: Date;
 }
 
-const CodeSchema = new Schema({
-  leetcode_username: { type: String, required: true },
-  birthday: { type: String },
-  ranking: { type: Number },
-  reputation: { type: Number },
-  skillTags: [{ type: String }],
-  owner: { type: Schema.Types.ObjectId, ref: "User" },
-  updatedAt: { type: Date, default: Date.now },
-});
+const CodeSchema = new Schema(
+  {
+    leetcode: {
+      username: { type: String, required: true },
+      ranking: { type: Number },
+      reputation: { type: Number },
+      badges: [
+        {
+          displayName: { type: String },
+          icon: { type: String },
+          creationDate: { type: String },
+        },
+      ],
+      upcomingBadges: [
+        {
+          displayName: { type: String },
+          icon: { type: String },
+        },
+      ],
+    },
+    owner: { type: Schema.Types.ObjectId, ref: "User" },
+  },
+  { timestamps: true },
+);
 
 export const Code = models?.Code || model<ICode>("Code", CodeSchema);

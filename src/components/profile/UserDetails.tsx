@@ -10,6 +10,7 @@ import CopyUserButton from "../shared/CopyUser";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
 import { FiMessageCircle } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
+import { Banner, ParamValue } from "./SmallComponents";
 
 export const UserDetails = async (data: any) => {
   const session = await getSession();
@@ -20,8 +21,18 @@ export const UserDetails = async (data: any) => {
 
   if (mongoUser)
     return (
-      <div className="relative mx-auto mt-2 flex h-fit w-full flex-col space-y-2 rounded-md border p-5 md:m-5 md:w-1/2">
-        <Banner />
+      <div className="relative mx-auto mt-2 flex h-fit w-full flex-col space-y-2 rounded-md border p-5">
+        <Banner>
+          <Image
+            src="/logo.png"
+            alt="banner"
+            width={100}
+            height={100}
+            className="h-4 w-4"
+          />
+          <p className="text-xs font-light">Legacy Profile</p>
+        </Banner>
+
         <div className="flex items-center justify-between">
           <Image
             src={mongoUser?.image ? data.data.image : "/avatar.gif"}
@@ -117,58 +128,4 @@ export const UserDetails = async (data: any) => {
       </div>
     );
   else redirect("/profile");
-};
-
-const Banner = () => {
-  return (
-    <div className="absolute -top-[0.5px] right-3 flex select-none items-center gap-1 rounded-b-md bg-zinc-400/[0.5] p-1 backdrop-blur-sm dark:bg-zinc-600/[0.5]">
-      <Image
-        src="/logo.png"
-        alt="banner"
-        width={100}
-        height={100}
-        className="h-4 w-4"
-      />
-      <p className="text-xs font-light">Legacy Profile</p>
-    </div>
-  );
-};
-
-const ParamValue = ({
-  parameter,
-  value,
-  icon,
-}: {
-  parameter: string;
-  value: string;
-  icon?: any;
-}) => {
-  const darkColors = [
-    "bg-slate-200",
-    "bg-blue-200",
-    "bg-yellow-200",
-    "bg-orange-200",
-  ];
-  const lightColors = [
-    "bg-slate-800",
-    "bg-blue-800",
-    "bg-yellow-800",
-    "bg-orange-800",
-  ];
-
-  return (
-    <div className="flex items-center">
-      <p
-        className={`flex w-24 items-center gap-1 rounded-l-md bg-violet-800 p-[2px] pl-2 text-sm font-light text-white ${
-          lightColors[Math.floor(Math.random() * lightColors.length)]
-        } dark:${darkColors[Math.floor(Math.random() * darkColors.length)]}`}
-      >
-        {icon}
-        {parameter}
-      </p>
-      <p className="rounded-r-md border-y border-r p-[2px] px-2 text-sm">
-        {value}
-      </p>
-    </div>
-  );
 };

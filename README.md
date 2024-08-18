@@ -21,3 +21,5 @@
 9. function edit profile: Edit profile button is now functional. User can update their profile. Response toast also integrated.
 
 10. fix in edit profile: Bugs fixed in edit profile. Uniqueness check for Username and email. User and Code model schema modified. Other UI changes.
+
+11. add leetcode detail: Added leetcode details in profile page. Code model schema modified.

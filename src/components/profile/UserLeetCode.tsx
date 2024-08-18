@@ -13,7 +13,7 @@ export const UserLeetCode = async ({
 
   if (usermail === sessionuser?.email)
     return (
-      <div className="mx-auto mt-2 flex h-fit w-full flex-col space-y-5 rounded-sm sm:m-5 sm:w-1/2">
+      <div className="mx-auto mt-2 flex h-fit w-full flex-col space-y-5 rounded-sm">
         <div className="flex w-full items-center">
           <LeetCodeForm
             sessionmail={sessionuser?.email}

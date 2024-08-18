@@ -14,6 +14,7 @@ import {
 } from "../validations";
 import { updateUserParams } from "./shared.types";
 import { revalidatePath } from "next/cache";
+import { Code } from "@/models/code.model";
 
 const login = async (data: LoginValues) => {
   const { email, password } = LoginSchema.parse(data);
@@ -77,7 +78,11 @@ const getUserData = async ({ email }: { email: string }) => {
 
 const getUserDataByUsername = async ({ username }: { username: string }) => {
   await connectToDB();
-  const user = await User.findOne({ username });
+  const user = await User.findOne({ username }).populate({
+    path: "code",
+    model: Code,
+  });
+  console.log("[USER]", user);
 
   return user;
 };
@@ -111,6 +116,13 @@ const UpdateUserData = async (
         return "Username already exists!";
       }
     }
+
+    if (
+      data.yearOfCompletion &&
+      (isNaN(data.yearOfCompletion) ||
+        data.yearOfCompletion.toString().length != 4)
+    )
+      return "Year of completion of degree should be a valid year!";
 
     if (data.github) {
       if (data.github.includes("https://github.com/"))
