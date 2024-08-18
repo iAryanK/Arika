@@ -8,30 +8,23 @@ import { Button } from "../ui/button";
 import { BottomGradient } from "../forms/EditProfileForm";
 import { UpdateUserData } from "@/lib/actions/user.action";
 import { usePathname } from "next/navigation";
+import { updateUserParams } from "@/lib/actions/shared.types";
 
 type Props = {
+  sessionUsername: string;
+  mongoUser: string;
   isSubmitting: boolean;
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
-  data: {
-    firstName: string;
-    lastName: string;
-    username: string;
-    email: string;
-    contact: string;
-    bio: string;
-    location: string;
-    institute: string;
-    degree: string;
-    yearOfCompletion: string;
-    resume: string;
-    portfolio: string;
-    github: string;
-    twitter: string;
-    linkedin: string;
-  };
+  data: updateUserParams;
 };
 
-const SaveUserButton = ({ isSubmitting, setIsSubmitting, data }: Props) => {
+const SaveUserButton = ({
+  sessionUsername,
+  mongoUser,
+  isSubmitting,
+  setIsSubmitting,
+  data,
+}: Props) => {
   const { setOpen } = useModal();
   const { toast } = useToast();
   const pathname = usePathname();
@@ -60,20 +53,23 @@ const SaveUserButton = ({ isSubmitting, setIsSubmitting, data }: Props) => {
       });
     }
 
-    const res = await UpdateUserData(data, { path: pathname });
+    const res = await UpdateUserData(data, {
+      path: pathname,
+      mongoUserId: JSON.parse(mongoUser),
+      sessionUsername,
+    });
     setIsSubmitting(false);
-    console.log("[RES]", res);
 
     if (res) {
+      return toast({
+        title: "Apologies!",
+        description: res,
+      });
+    } else {
       setOpen(false);
       return toast({
         title: "Success!",
         description: "Your profile has been updated.",
-      });
-    } else {
-      return toast({
-        title: "Apologies!",
-        description: "Something went wrong.",
       });
     }
   };

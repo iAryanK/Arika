@@ -27,7 +27,9 @@ const Topbar = ({ session }: { session: any }) => {
           alt="logo"
           quality={100}
         />
-        <p className="max-xs:hidden text-xl">{routeName()}</p>
+        <p className="max-xs:hidden rounded-md bg-gray-300/[0.5] px-2 py-[2px] font-sans text-lg font-medium dark:bg-zinc-800/[0.5]">
+          {routeName()}
+        </p>
       </Link>
 
       <div className="hover:cursor-pointer max-sm:flex">

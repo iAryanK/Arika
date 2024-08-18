@@ -19,3 +19,5 @@
 8. Create user profile: After some bug fixes, protected user profile is created. Code Modal created in db to store data of coding websites of the user. Leetcode api integrated. CreateLeetCodeData backend implemented. Edit profile Modal UI created. OAuth signIn creates unique username using the mailId itself.
 
 9. function edit profile: Edit profile button is now functional. User can update their profile. Response toast also integrated.
+
+10. fix in edit profile: Bugs fixed in edit profile. Uniqueness check for Username and email. User and Code model schema modified. Other UI changes.

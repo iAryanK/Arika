@@ -19,9 +19,9 @@ const Page = async ({ params }: Props) => {
   const userdata = await getUserDataByUsername({ username });
 
   return (
-    <section className="relative h-full w-full">
+    <section className="relative h-full w-full overflow-y-scroll">
       <BackgroundCircles />
-      <div className="absolute top-0 h-full w-full p-2 backdrop-blur-3xl">
+      <div className="absolute top-0 h-full w-full p-2 backdrop-blur-3xl max-sm:mb-96">
         <UserDetails data={userdata} />
 
         {user?.email === userdata?.email && !userdata?.code && (
@@ -30,6 +30,8 @@ const Page = async ({ params }: Props) => {
             mongoUserId={JSON.stringify(userdata?._id)}
           />
         )}
+
+        <div className="h-24"></div>
       </div>
     </section>
   );

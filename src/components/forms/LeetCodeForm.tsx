@@ -44,7 +44,7 @@ const LeetCodeForm = ({
       // get leetcode data from api and store it into the db.
       const res = await createLeetcodeData({
         email: sessionmail,
-        leetcode_username: values.leetcode_username,
+        leetcode_username: values.leetcode_username.toLowerCase(),
         path: pathname,
         owner: JSON.parse(mongoUserId),
       });

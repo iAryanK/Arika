@@ -9,7 +9,7 @@ const Bottombar = ({ user, session }: { user: any; session: any }) => {
   const pathname = usePathname();
 
   return (
-    <section className="xs:px-7 fixed bottom-0 z-10 w-full rounded-t-xl border-t bg-white/[0.1] p-4 backdrop-blur-lg dark:bg-black/[0.1] md:hidden">
+    <section className="xs:px-7 fixed bottom-0 z-10 w-full rounded-t-xl border-t bg-white/[0.1] px-4 py-2 backdrop-blur-lg dark:bg-black/[0.1] sm:py-1 md:hidden">
       <div className="xs:gap-5 flex items-center justify-between gap-3">
         {SidebarLinks.map(({ imgURL, route, label }) => {
           const isActive =
@@ -25,7 +25,7 @@ const Bottombar = ({ user, session }: { user: any; session: any }) => {
             <Link
               href={route}
               key={label}
-              className={`relative flex flex-col items-center gap-1 rounded-lg p-2 transition-all duration-200 hover:scale-110 sm:flex-1 sm:px-2 sm:py-2 ${isActive && "bg-violet-600 shadow-[0px_0px_25px_5px_rgba(148,0,211,0.5)] dark:bg-violet-800"}`}
+              className={`relative flex flex-col items-center gap-1 rounded-lg p-2 transition-all duration-200 hover:scale-110 sm:flex-1 sm:px-2 sm:pb-1 sm:pt-2 ${isActive && "bg-violet-600 shadow-[0px_0px_25px_5px_rgba(148,0,211,0.5)] dark:bg-violet-800"}`}
             >
               <div>
                 {session &&

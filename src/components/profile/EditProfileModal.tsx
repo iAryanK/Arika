@@ -13,12 +13,19 @@ import { EditProfileForm } from "../forms/EditProfileForm";
 import { Button } from "../ui/button";
 import { UserPen } from "lucide-react";
 import SaveUserButton from "./SaveUserButton";
+import { updateUserParams } from "@/lib/actions/shared.types";
 
-export function EditProfileModal(user: any) {
+export function EditProfileModal({
+  user,
+  mongoUser,
+}: {
+  user: string;
+  mongoUser: string;
+}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const userdata = user.user ? JSON.parse(user.user) : null;
+  const userdata = user ? JSON.parse(user) : null;
 
-  const initialvalues = {
+  const initialvalues: updateUserParams = {
     firstName: userdata?.firstName || "",
     lastName: userdata?.lastName || "",
     username: userdata?.username || "",
@@ -56,13 +63,14 @@ export function EditProfileModal(user: any) {
             </h4>
 
             <EditProfileForm
-              isSubmitting={isSubmitting}
               setIsSubmitting={setIsSubmitting}
               data={data}
               setData={setData}
             />
             <div className="mx-5 mb-20 sm:hidden">
               <SaveUserButton
+                sessionUsername={userdata?.username}
+                mongoUser={mongoUser}
                 isSubmitting={isSubmitting}
                 setIsSubmitting={setIsSubmitting}
                 data={data}
@@ -71,6 +79,8 @@ export function EditProfileModal(user: any) {
           </ModalContent>
           <ModalFooter className="max-sm:hidden">
             <SaveUserButton
+              sessionUsername={userdata?.username}
+              mongoUser={mongoUser}
               isSubmitting={isSubmitting}
               setIsSubmitting={setIsSubmitting}
               data={data}

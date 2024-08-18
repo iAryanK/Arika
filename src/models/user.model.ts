@@ -1,10 +1,12 @@
 import { model, models, Schema, Document } from "mongoose";
 import { Code } from "./code.model";
+import { string } from "zod";
 
 export interface IUser extends Document {
   username: string;
   firstName: string;
   lastName?: string;
+  birthday?: string;
   email: string;
   contact?: string;
   password?: string;
@@ -15,7 +17,8 @@ export interface IUser extends Document {
   location?: string;
   institute?: string;
   degree?: string;
-  yearOfCompletion?: string;
+  yearOfCompletion?: number;
+  skillTags?: string[];
   resume?: string;
   portfolio?: string;
   github?: string;
@@ -29,6 +32,7 @@ const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   firstName: { type: String, required: true },
   lastName: { type: String },
+  birthday: { type: String },
   email: { type: String, required: true },
   contact: { type: String },
   password: { type: String, select: false },
@@ -43,7 +47,8 @@ const userSchema = new Schema({
   linkedin: { type: String },
   institute: { type: String },
   degree: { type: String },
-  yearOfCompletion: { type: String },
+  yearOfCompletion: { type: Number },
+  skillTags: [{ type: String }],
   resume: { type: String },
   code: { type: Schema.Types.ObjectId, ref: Code.modelName },
   joinedAt: { type: Date, default: Date.now },

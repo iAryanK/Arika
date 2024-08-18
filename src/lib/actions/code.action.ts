@@ -46,6 +46,11 @@ const createLeetcodeData = async (params: createLeetcodeParams) => {
 
     const user = await User.findById({ _id: owner });
 
+    if (!user.birthday && leetcodeData.birthday)
+      user.birthday = leetcodeData.birthday;
+
+    if (!user.bio && leetcodeData.about) user.bio = leetcodeData.about;
+
     if (!user.image && leetcodeData.avatar) user.image = leetcodeData.avatar;
 
     if (!user.location && leetcodeData.country)
@@ -65,13 +70,16 @@ const createLeetcodeData = async (params: createLeetcodeParams) => {
     if (!user.institute && leetcodeData.school)
       user.institute = leetcodeData.school;
 
-    if (!user.bio && leetcodeData.about) user.bio = leetcodeData.about;
+    if (!user.skillTags && leetcodeData.skillTags)
+      user.skillTags = leetcodeData.skillTags;
 
     await user.save();
 
     revalidatePath(path);
   } catch (error: any) {
-    return error.message;
+    console.log("[CREATE LEETCODE DATA ERROR]: ", error);
+
+    return "This username has already been taken.";
   }
 };
 

@@ -5,36 +5,15 @@ import { cn } from "@/lib/utils";
 import { Label } from "../aceternity/label";
 import { Input } from "../aceternity/input";
 import { TextArea } from "../aceternity/textarea";
+import { updateUserParams } from "@/lib/actions/shared.types";
 
 type Props = {
-  isSubmitting: boolean;
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
-  data: {
-    firstName: string;
-    lastName: string;
-    username: string;
-    email: string;
-    contact: string;
-    bio: string;
-    location: string;
-    institute: string;
-    degree: string;
-    yearOfCompletion: string;
-    resume: string;
-    portfolio: string;
-    github: string;
-    twitter: string;
-    linkedin: string;
-  };
+  data: updateUserParams;
   setData: (data: any) => void;
 };
 
-export function EditProfileForm({
-  isSubmitting,
-  setIsSubmitting,
-  data,
-  setData,
-}: Props) {
+export function EditProfileForm({ setIsSubmitting, data, setData }: Props) {
   return (
     <div className="mx-auto w-full max-w-md p-4 md:p-8">
       <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
@@ -92,6 +71,7 @@ export function EditProfileForm({
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
           <Input
+            disabled
             id="email"
             name="email"
             value={data.email}
@@ -182,7 +162,7 @@ export function EditProfileForm({
               setData({ ...data, [e.target.name]: e.target.value })
             }
             placeholder="B.tech, B.Sc, etc."
-            type="text"
+            type="tel"
           />
         </LabelInputContainer>
 
