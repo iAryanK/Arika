@@ -6,21 +6,30 @@ import { Badge } from "../ui/badge";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import CopyUserButton from "../shared/CopyUser";
-import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
+import { IoLogoGithub } from "react-icons/io";
 import { FiMessageCircle } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import { Banner, ParamValue } from "./SmallComponents";
+import { FaLinkedinIn } from "react-icons/fa";
 
-export const UserDetails = async (data: any) => {
+type Props = {
+  data: any;
+  className?: string;
+  community?: boolean;
+};
+
+export const UserDetails = async ({ data, className, community }: Props) => {
   const session = await getSession();
   const user = session?.user;
-  const mongoUser = data?.data;
+  const mongoUser = data;
 
   let isStudent = mongoUser?.yearOfCompletion > new Date().getFullYear();
 
   if (mongoUser)
     return (
-      <div className="relative mx-auto mt-2 flex h-fit w-full flex-col space-y-2 rounded-md border p-5 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+      <div
+        className={`relative mx-auto mt-2 flex h-fit w-full flex-col space-y-2 rounded-md border p-5 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] ${className}`}
+      >
         <Banner>
           <Image
             src="/logo.png"
@@ -34,13 +43,14 @@ export const UserDetails = async (data: any) => {
 
         <div className="flex items-center justify-between">
           <Image
-            src={mongoUser?.image ? data.data.image : "/avatar.gif"}
+            unoptimized
+            src={mongoUser?.image ? data.image : "/avatar.gif"}
             alt="profile"
             width={100}
             height={100}
             className="h-20 w-20 rounded-full object-cover"
           />
-          {user?.email === mongoUser?.email && (
+          {user?.email === mongoUser?.email && !community && (
             <div>
               <EditProfileModal
                 user={JSON.stringify(data.data)}
@@ -66,10 +76,10 @@ export const UserDetails = async (data: any) => {
 
         <div className="pt-3">
           {mongoUser?.institute && (
-            <p className="mt-1 font-medium">{data.data.institute} </p>
+            <p className="mt-1 font-medium">{data.institute} </p>
           )}
           {mongoUser?.location && (
-            <p className="text-muted-foreground">{data.data.location}</p>
+            <p className="text-muted-foreground">{data.location}</p>
           )}
         </div>
 
@@ -99,7 +109,7 @@ export const UserDetails = async (data: any) => {
               href={`https://www.linkedin.com/in/${mongoUser.linkedin}`}
               parameter="LinkedIn"
               value={mongoUser.linkedin}
-              icon={<IoLogoLinkedin />}
+              icon={<FaLinkedinIn />}
             />
           )}
           {mongoUser?.twitter && (
@@ -116,14 +126,14 @@ export const UserDetails = async (data: any) => {
         <div className="flex w-full flex-col gap-2 lg:flex-row">
           {mongoUser?.resume && (
             <Button asChild className="w-full" variant={"secondary"}>
-              <Link href={data.data.portfolio} target="_blank">
+              <Link href={data.portfolio} target="_blank">
                 View Resume
               </Link>
             </Button>
           )}
           {mongoUser?.portfolio && (
             <Button asChild className="w-full">
-              <Link href={data.data.portfolio} target="_blank">
+              <Link href={data.portfolio} target="_blank">
                 Visit portfolio
               </Link>
             </Button>

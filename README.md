@@ -23,3 +23,5 @@
 10. fix in edit profile: Bugs fixed in edit profile. Uniqueness check for Username and email. User and Code model schema modified. Other UI changes.
 
 11. add leetcode detail: Added leetcode details in profile page. Code model schema modified.
+
+12. Create community page: Created the community page. Used UserDetails component from profile page to display quick profile view in community page, when clicked on any user.

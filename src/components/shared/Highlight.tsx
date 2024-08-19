@@ -9,10 +9,7 @@ export const Highlight = ({
 }) => {
   return (
     <strong
-      className={cn(
-        "rounded-sm bg-emerald-100 px-1 py-0.5 font-bold text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-violet-500",
-        className,
-      )}
+      className={cn("rounded-sm bg-secondary px-1 py-0.5 font-bold", className)}
     >
       {children}
     </strong>

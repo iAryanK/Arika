@@ -19,6 +19,7 @@ const LeetCodeDetails = ({ leetcodeData }: Props) => {
 
       <div className="py-2">
         <ParamValue
+          className="bg-green-950"
           href={`https://leetcode.com/u/${leetcodeData.username}`}
           parameter={leetcodeData.username}
           value={leetcodeData.ranking}

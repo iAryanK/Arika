@@ -18,7 +18,7 @@ const Topbar = ({ session }: { session: any }) => {
   };
 
   return (
-    <nav className="top-0 z-50 flex w-full items-center justify-between border-b bg-white/[0.1] p-4 px-6 py-3 backdrop-blur-lg dark:bg-black/[0.1] max-md:rounded-b-lg">
+    <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b bg-white/[0.1] px-6 py-3 backdrop-blur-lg dark:bg-black/[0.1] max-md:rounded-b-lg">
       <Link href="/" className="flex items-center gap-4">
         <Image
           src={"/logo.png"}
@@ -28,7 +28,7 @@ const Topbar = ({ session }: { session: any }) => {
           alt="logo"
           quality={100}
         />
-        <p className="max-xs:hidden rounded-md bg-gray-300/[0.5] px-2 py-[2px] font-sans text-lg font-medium dark:bg-zinc-800/[0.5]">
+        <p className="max-xs:hidden rounded-md px-2 py-[2px] text-lg font-medium">
           {routeName()}
         </p>
       </Link>

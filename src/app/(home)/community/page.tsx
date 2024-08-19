@@ -1,19 +1,14 @@
+import UserCard from "@/components/community/UserCard";
 import { getAllUsers } from "@/lib/actions/user.action";
 import React from "react";
 
 const Page = async () => {
   const res = await getAllUsers();
-  //   console.log("[res]", res);
 
-  // map over the users array 'res' and display the user's card
   return (
-    <div className="m-5">
+    <div className="mt-20 scroll-m-20 space-y-2 px-5 md:w-1/2">
       {res.map((user: any, index: number) => (
-        // each user card
-        <div key={index} className="border-2">
-          <h1>{user.firstName}</h1>
-          <p>@{user.username}</p>
-        </div>
+        <UserCard key={index} user={user} />
       ))}
     </div>
   );
