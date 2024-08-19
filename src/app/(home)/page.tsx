@@ -1,12 +1,10 @@
-import { signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
-import { redirect } from "next/navigation";
-import { getSession } from "@/lib/getSession";
+import InstallPrompt from "@/components/shared/InstallPrompt";
 
 export default async function Home() {
   return (
-    <main className="flex h-full w-full items-center justify-center overflow-y-scroll">
-      Arika | Under Development
+    <main className="flex h-full w-full flex-col items-center justify-center gap-2 overflow-y-scroll">
+      <InstallPrompt />
+      <p className="">Arika | Under Development</p>
     </main>
   );
 }
