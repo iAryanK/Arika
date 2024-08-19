@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Mulish, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import NextTopLoader from "nextjs-toploader";
+import type { Viewport } from "next";
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -23,9 +24,14 @@ const ibm_plex_mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  manifest: "/manifest.json",
   title: "Arika",
   description:
     "Welcome to Arika! Search and prepare for your jobs or interships as a fresher or experienced developer. Engage with the most curated content on the internet a computer science developer. Manage and share your Arika legacy profile.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({

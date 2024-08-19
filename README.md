@@ -25,3 +25,5 @@
 11. add leetcode detail: Added leetcode details in profile page. Code model schema modified.
 
 12. Create community page: Created the community page. Used UserDetails component from profile page to display quick profile view in community page, when clicked on any user.
+
+13. Enable PWA: Arika enabled as PWA. 'next.config.mjs' converted to 'next.config.js'.
