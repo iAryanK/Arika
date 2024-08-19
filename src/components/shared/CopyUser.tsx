@@ -1,23 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Badge } from "../ui/badge";
 import { toast } from "../ui/use-toast";
+import { Check, Copy } from "lucide-react";
 
 type Props = {
-  children: React.ReactNode;
   username: string;
 };
 
-const CopyUserButton = ({ children, username }: Props) => {
+const CopyUserButton = ({ username }: Props) => {
+  const [copied, setCopied] = useState(false);
+
   const handleCopyUserLink = () => {
     if (navigator.clipboard) {
+      setCopied(true);
       navigator.clipboard.writeText(
         `https://arika.iaryan.tech/profile/${username}`,
       );
+      setTimeout(() => setCopied(false), 3000);
+    } else {
       return toast({
-        title: "Profile link copied to clipboard!",
-        description: "Share this Arika profile with others.",
+        title: "Sorry!",
+        description: "Unable to copy the legacy profile link.",
       });
     }
   };
@@ -26,7 +31,8 @@ const CopyUserButton = ({ children, username }: Props) => {
     username && (
       <div onClick={handleCopyUserLink}>
         <Badge className="cursor-pointer select-none text-sm font-light">
-          {children}
+          <span className="pr-2">@{username}</span>{" "}
+          {copied ? <Check size={12} /> : <Copy size={12} />}
         </Badge>
       </div>
     )

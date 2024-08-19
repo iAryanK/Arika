@@ -19,7 +19,8 @@ const LeetCodeDetails = ({ leetcodeData }: Props) => {
 
       <div className="py-2">
         <ParamValue
-          parameter="Leetcode"
+          href={`https://leetcode.com/u/${leetcodeData.username}`}
+          parameter={leetcodeData.username}
           value={leetcodeData.ranking}
           icon={<TbBrandLeetcode />}
         />
@@ -42,7 +43,10 @@ const LeetCodeDetails = ({ leetcodeData }: Props) => {
               width={50}
               height={50}
             />
-            <Badge variant={"secondary"} className="mr-0 rounded-l-none">
+            <Badge
+              variant={"secondary"}
+              className="mr-0 rounded-l-none border-none bg-gradient-to-r from-background via-secondary to-secondary"
+            >
               {badge.displayName}
             </Badge>
           </div>
@@ -66,7 +70,10 @@ const LeetCodeDetails = ({ leetcodeData }: Props) => {
                   width={50}
                   height={50}
                 />
-                <Badge variant={"secondary"} className="mr-0 rounded-l-none">
+                <Badge
+                  variant={"secondary"}
+                  className="mr-0 rounded-l-none border-none bg-gradient-to-r from-zinc-100 via-secondary to-secondary dark:from-zinc-900"
+                >
                   {badge.displayName}
                 </Badge>
               </div>

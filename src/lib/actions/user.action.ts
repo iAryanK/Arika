@@ -124,22 +124,30 @@ const UpdateUserData = async (
       return "Year of completion of degree should be a valid year!";
 
     if (data.github) {
-      if (data.github.includes("https://github.com/"))
-        data.github = data.github
-          .replace("https://github.com/", "")
-          .replace("/", "");
+      if (data.github.includes("github.com/")) {
+        if (data.github.charAt(data.github.length - 1) == "/")
+          data.github = data.github.slice(0, -1);
+
+        data.github = data.github.slice(data.github.lastIndexOf("/") + 1);
+      }
     }
+
     if (data.linkedin) {
-      if (data.linkedin.includes("https://www.linkedin.com/in/"))
-        data.linkedin = data.linkedin
-          .replace("https://www.linkedin.com/in/", "")
-          .replace("/", "");
+      if (data.linkedin.includes("linkedin.com/in/")) {
+        if (data.linkedin.charAt(data.linkedin.length - 1) == "/")
+          data.linkedin = data.linkedin.slice(0, -1);
+
+        data.linkedin = data.linkedin.slice(data.linkedin.lastIndexOf("/") + 1);
+      }
     }
+
     if (data.twitter) {
-      if (data.twitter.includes("https://twitter.com/"))
-        data.twitter = data.twitter
-          .replace("https://twitter.com/", "")
-          .replace("/", "");
+      if (data.twitter.includes("twitter.com/")) {
+        if (data.twitter.charAt(data.twitter.length - 1) == "/")
+          data.twitter = data.twitter.slice(0, -1);
+
+        data.twitter = data.twitter.slice(data.twitter.lastIndexOf("/") + 1);
+      }
     }
 
     // update anything other than the email

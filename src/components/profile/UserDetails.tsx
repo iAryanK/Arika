@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { Badge } from "../ui/badge";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Copy } from "lucide-react";
 import CopyUserButton from "../shared/CopyUser";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
 import { FiMessageCircle } from "react-icons/fi";
@@ -52,9 +51,7 @@ export const UserDetails = async (data: any) => {
         </div>
 
         <div className="flex gap-4 pt-5">
-          <CopyUserButton username={mongoUser?.username}>
-            @{mongoUser?.username} <Copy size={20} className="pl-2" />
-          </CopyUserButton>
+          <CopyUserButton username={mongoUser?.username} />
 
           {mongoUser?.yearOfCompletion && (
             <Badge variant={"secondary"} className="text-sm">
@@ -81,6 +78,7 @@ export const UserDetails = async (data: any) => {
         <div className="space-y-2 py-3">
           {mongoUser?.contact && (
             <ParamValue
+              className="w-[88px] bg-slate-800"
               parameter="Contact"
               value={mongoUser.contact}
               icon={<FiMessageCircle />}
@@ -88,6 +86,8 @@ export const UserDetails = async (data: any) => {
           )}
           {mongoUser?.github && (
             <ParamValue
+              className="w-[88px] bg-amber-800"
+              href={`https://github.com/${mongoUser.github}`}
               parameter="Github"
               value={mongoUser.github}
               icon={<IoLogoGithub />}
@@ -95,6 +95,8 @@ export const UserDetails = async (data: any) => {
           )}
           {mongoUser?.linkedin && (
             <ParamValue
+              className="w-[88px] bg-violet-800"
+              href={`https://www.linkedin.com/in/${mongoUser.linkedin}`}
               parameter="LinkedIn"
               value={mongoUser.linkedin}
               icon={<IoLogoLinkedin />}
@@ -102,6 +104,8 @@ export const UserDetails = async (data: any) => {
           )}
           {mongoUser?.twitter && (
             <ParamValue
+              className="w-[88px] bg-zinc-800"
+              href={`https://twitter.com/${mongoUser.twitter}`}
               parameter="Twitter"
               value={mongoUser.twitter}
               icon={<FaXTwitter />}

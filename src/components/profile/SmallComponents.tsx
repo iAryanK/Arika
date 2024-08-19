@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export const Banner = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -9,33 +9,22 @@ export const Banner = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const ParamValue = ({
+  href,
   parameter,
   value,
   icon,
+  className,
 }: {
+  href?: string;
   parameter: string;
   value: string;
   icon?: any;
+  className?: string;
 }) => {
-  const darkColors = [
-    "bg-slate-200",
-    "bg-blue-200",
-    "bg-yellow-200",
-    "bg-orange-200",
-  ];
-  const lightColors = [
-    "bg-slate-800",
-    "bg-blue-800",
-    "bg-yellow-800",
-    "bg-orange-800",
-  ];
-
-  return (
-    <div className="flex items-center">
+  const Item = () => (
+    <div className="my-2 flex w-fit items-center">
       <p
-        className={`flex w-24 items-center gap-1 rounded-l-md bg-violet-800 p-[2px] pl-2 text-sm font-light text-white ${
-          lightColors[Math.floor(Math.random() * lightColors.length)]
-        } dark:${darkColors[Math.floor(Math.random() * darkColors.length)]}`}
+        className={`flex items-center gap-1 rounded-l-md p-[2px] pl-2 pr-2 text-sm font-light text-white ${className}`}
       >
         {icon}
         {parameter}
@@ -45,4 +34,12 @@ export const ParamValue = ({
       </p>
     </div>
   );
+
+  if (href)
+    return (
+      <Link href={href} target="_blank">
+        <Item />
+      </Link>
+    );
+  return <Item />;
 };

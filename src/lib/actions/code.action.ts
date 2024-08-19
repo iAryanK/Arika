@@ -82,9 +82,6 @@ const createLeetcodeData = async (params: createLeetcodeParams) => {
 
     await code.save();
 
-    // update code in user with the id of above code
-    // await User.findOneAndUpdate({ owner }, { code: code._id });
-
     const user = await User.findById({ _id: owner });
     user.code = code._id;
 

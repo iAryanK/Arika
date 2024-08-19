@@ -25,7 +25,7 @@ export interface ICode extends Document {
 const CodeSchema = new Schema(
   {
     leetcode: {
-      username: { type: String, required: true },
+      username: { type: String },
       ranking: { type: Number },
       reputation: { type: Number },
       badges: [
