@@ -20,9 +20,9 @@ const Page = async ({ params }: Props) => {
   const userdata = await getUserDataByUsername({ username });
 
   return (
-    <section className="relative h-full w-full overflow-y-scroll">
+    <section className="relative mt-2 h-full w-full overflow-y-scroll">
       <BackgroundCircles />
-      <div className="custom-scrollbar absolute top-0 flex h-full w-full flex-col gap-2 overflow-y-scroll p-2 pb-20 pt-16 backdrop-blur-3xl lg:flex-row lg:justify-between">
+      <div className="custom-scrollbar absolute top-0 flex h-full w-full flex-col gap-2 overflow-y-scroll p-2 pb-20 backdrop-blur-3xl max-md:pt-16 lg:flex-row lg:justify-between">
         <div className="w-full">
           <UserDetails data={userdata} />
 

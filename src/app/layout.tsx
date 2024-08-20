@@ -50,7 +50,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader showSpinner={false} color="#7f00ff" />
+          <NextTopLoader showSpinner={false} color="#aaff00" />
           {children}
         </ThemeProvider>
       </body>

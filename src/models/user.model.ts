@@ -1,6 +1,5 @@
 import { model, models, Schema, Document } from "mongoose";
 import { Code } from "./code.model";
-import { string } from "zod";
 
 export interface IUser extends Document {
   username: string;

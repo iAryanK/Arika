@@ -27,3 +27,5 @@
 12. Create community page: Created the community page. Used UserDetails component from profile page to display quick profile view in community page, when clicked on any user.
 
 13. Enable PWA: Arika enabled as PWA. 'next.config.mjs' converted to 'next.config.js'.
+
+14. Create jobs page: Scraped data from jobs website and stored into the database. The database updates every 24 hours only if a new request comes. In this way, I overcame the use of cron jobs.
