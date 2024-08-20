@@ -18,7 +18,7 @@ const Topbar = ({ session }: { session: any }) => {
   };
 
   return (
-    <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b bg-white/[0.1] px-6 py-3 backdrop-blur-lg dark:bg-black/[0.1] max-md:rounded-b-lg">
+    <nav className="top-0 z-10 flex w-full items-center justify-between border-b bg-white/[0.1] px-6 py-3 backdrop-blur-lg dark:bg-black/[0.1] max-md:fixed max-md:rounded-b-lg">
       <Link href="/" className="flex items-center gap-4">
         <Image
           src={"/logo.png"}

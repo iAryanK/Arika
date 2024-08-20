@@ -53,7 +53,7 @@ export const UserDetails = async ({ data, className, community }: Props) => {
           {user?.email === mongoUser?.email && !community && (
             <div>
               <EditProfileModal
-                user={JSON.stringify(data.data)}
+                user={JSON.stringify(data)}
                 mongoUser={JSON.stringify(mongoUser._id)}
               />
             </div>
