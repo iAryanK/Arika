@@ -4,7 +4,6 @@ import Topbar from "@/components/shared/Topbar";
 import { Toaster } from "@/components/ui/toaster";
 import { getUserData } from "@/lib/actions/user.action";
 import { getSession } from "@/lib/getSession";
-import NextTopLoader from "nextjs-toploader";
 
 export default async function HomeLayout({
   children,
@@ -18,7 +17,6 @@ export default async function HomeLayout({
 
   return (
     <main>
-      <NextTopLoader showSpinner={false} color="#7f00ff" />
       <div className="flex">
         <LeftSidebar session={session} username={data?.username} />
 

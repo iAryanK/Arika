@@ -10,7 +10,7 @@ const Topbar = ({ session }: { session: any }) => {
   const pathname = usePathname();
 
   const routeName = () => {
-    if (pathname === "/") return "Arika";
+    if (pathname === "/") return "ARIKA";
     let formatName = pathname.charAt(1).toUpperCase() + pathname.slice(2);
     if (pathname.includes("/profile/"))
       formatName = formatName.slice(0, formatName.indexOf("/", 1));
@@ -28,7 +28,7 @@ const Topbar = ({ session }: { session: any }) => {
           alt="logo"
           quality={100}
         />
-        <p className="max-xs:hidden rounded-md px-2 py-[2px] text-lg font-medium">
+        <p className="max-xs:hidden rounded-md px-2 font-mono text-lg font-light">
           {routeName()}
         </p>
       </Link>

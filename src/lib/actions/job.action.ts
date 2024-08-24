@@ -1,14 +1,34 @@
 "use server";
 
 import { Job } from "@/models/job.model";
-import puppeteer from "puppeteer";
-import { Browser } from "puppeteer";
+
+let chrome: any = {};
+let puppeteer;
+
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+  chrome = require("chrome-aws-lambda");
+  puppeteer = require("puppeteer-core");
+} else {
+  puppeteer = require("puppeteer");
+}
 
 const url = "https://www.jobsinternshipswale.com/app/#/home";
 
 const scrapeJobs = async () => {
   try {
-    const browser: Browser = await puppeteer.launch({ headless: true });
+    let options = {};
+
+    if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+      options = {
+        args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+        defaultViewport: chrome.defaultViewport,
+        executablePath: await chrome.executablePath,
+        headless: true,
+        ignoreHTTPSErrors: true,
+      };
+    }
+
+    const browser = await puppeteer.launch(options);
 
     const page = await browser.newPage();
 
@@ -57,20 +77,12 @@ const scrapeJobs = async () => {
 };
 
 const getAllJobs = async () => {
+  console.log("[GET ALL JOBS] Getting all jobs");
   try {
-    const data = await Job.find({});
-    // if data.updatedAt is within 24 hours, return data else clear database and update  with new scraped data
-    // @ts-ignore
-    if (data && data.updatedAt > Date.now() - 86400000) {
-      console.log("[GET ALL JOBS] Returning data from database");
-
-      return data;
-    }
-
-    await Job.deleteMany({});
     const jobs = await scrapeJobs();
     await Job.create({ jiw: jobs });
     console.log("[GET ALL JOBS] Returning fresh scraped data");
+    // @ts-ignore
     return jobs;
   } catch (error) {
     console.error("[GET ALL JOBS ERROR]", error);

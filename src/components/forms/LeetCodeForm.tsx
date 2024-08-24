@@ -70,7 +70,7 @@ const LeetCodeForm = ({
                   <Input
                     type="text"
                     placeholder="your Leetcode Username"
-                    className="w-full rounded-r-none lowercase"
+                    className="w-full rounded-r-none bg-transparent lowercase"
                     {...field}
                   />
                 </FormControl>

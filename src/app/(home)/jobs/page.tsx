@@ -7,10 +7,14 @@ import { MapPin } from "lucide-react";
 type Props = {};
 
 const Page = async (props: Props) => {
-  const res = await getAllJobs();
+  const ress = await getAllJobs();
+  // @ts-ignore
+  console.log(ress);
+  const res = ress;
+
   return (
-    <div className="custom-scrollbar scroll-m-20 space-y-2 overflow-scroll px-5 pb-20 max-md:pt-20 md:w-1/2">
-      {res?.map((job, index) => (
+    <div className="custom-scrollbar scroll-m-20 space-y-2 overflow-scroll px-5 pb-20 pt-5 max-md:pt-20 md:w-1/2">
+      {res?.map((job: any, index: number) => (
         <Card
           key={index}
           className="border-none px-4 py-2 shadow-sm hover:shadow-input dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]"

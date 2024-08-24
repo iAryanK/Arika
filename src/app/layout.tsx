@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import NextTopLoader from "nextjs-toploader";
 import type { Viewport } from "next";
+import LoadingProvider from "@/components/providers/loading-provider";
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -50,8 +51,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader showSpinner={false} color="#aaff00" />
-          {children}
+          <LoadingProvider>
+            <NextTopLoader color="#8F00FF" showSpinner={false} />
+            {children}
+          </LoadingProvider>
         </ThemeProvider>
       </body>
     </html>
