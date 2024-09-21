@@ -53,13 +53,13 @@ const AptitudeOfTheDay = () => {
               key={index}
               className="flex items-center justify-start gap-2 rounded-lg border border-zinc-300 p-2 hover:border-zinc-400 dark:border-muted"
             >
-              <div className="w-fit">
+              <div className="flex w-fit items-center">
                 <input
                   type="radio"
                   value={option}
                   name={`option_${index}`}
                   id={`option_${index}`}
-                  className="size-3 border-amber-500 bg-none text-amber-500 dark:border-white dark:text-white"
+                  className="size-4 border-amber-500 bg-none text-amber-500 dark:border-white dark:text-white"
                   checked={userAns === option}
                   onChange={(e) => setUserAns(e.target.value)}
                 />
@@ -72,7 +72,7 @@ const AptitudeOfTheDay = () => {
         </RadioGroup>
 
         <Button
-          className="mt-4 bg-amber-600 font-space_grotesk text-base font-light tracking-wide text-white hover:bg-amber-600/80"
+          className="mt-4 bg-amber-600 font-space_grotesk text-sm font-light tracking-wide text-white hover:bg-amber-600/80"
           variant={"secondary"}
           size={"sm"}
           onClick={handleSubmit}
@@ -131,7 +131,7 @@ const CodeOfTheDay = () => {
         </div>
 
         <Button
-          className="mt-4 bg-amber-600 font-space_grotesk text-base font-light tracking-wide text-white hover:bg-amber-600/80"
+          className="mt-4 bg-amber-600 font-space_grotesk text-sm font-light tracking-wide text-white hover:bg-amber-600/80"
           variant={"secondary"}
           size={"sm"}
           asChild

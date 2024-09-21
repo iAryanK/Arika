@@ -10,13 +10,13 @@ import { LogIn } from "lucide-react";
 
 const Topbar = ({ session }: { session: any }) => {
   const pathname = usePathname();
-
   const routeName = () => {
-    if (pathname === "/") return "ARIKA";
-    let formatName = pathname.charAt(1).toUpperCase() + pathname.slice(2);
-    if (pathname.includes("/profile/"))
-      formatName = formatName.slice(0, formatName.indexOf("/", 1));
-    return formatName;
+    if (pathname.includes("/aptitude")) return "Aptitude";
+    if (pathname.includes("/code")) return "Code";
+    if (pathname.includes("/profile")) return "Profile";
+    if (pathname.includes("/community")) return "Community";
+    if (pathname.includes("/jobs")) return "Jobs";
+    return "Arika";
   };
 
   return (

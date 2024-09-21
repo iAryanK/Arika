@@ -100,9 +100,9 @@ export function SidebarItem({
   const OneItem = () => {
     return (
       <li
-        className={`group relative my-2 ml-2 flex cursor-pointer items-center justify-center rounded-md px-2 py-2 transition-all duration-200 hover:scale-110 ${
+        className={`group relative my-2 ml-2 flex cursor-pointer items-center justify-center rounded-md px-2 py-2 transition-all duration-200 hover:scale-110 hover:shadow-[2px_4px_16px_0px_rgba(0,0,0,0.06)_inset] hover:dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] ${
           pathname === href
-            ? "bg-gradient-to-r from-violet-700 to-violet-800 font-medium text-white shadow-[10px_0_20px_-2px_rgba(148,0,211,0.5)]"
+            ? "bg-gradient-to-r from-violet-700 to-violet-800 font-medium text-white"
             : "font-normal hover:bg-zinc-300 dark:hover:bg-secondary"
         }`}
       >

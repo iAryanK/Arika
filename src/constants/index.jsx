@@ -89,8 +89,8 @@ export const AIAptitudeItems = [
     },
     {
         image: <PiCodeSimpleFill size={44} />,
-        title: "DSA",
-        description: "Data Structures & Algorithms",
-        link: "/aptitude/dsa",
+        title: "Logical reasoning",
+        description: "Logical reasoning",
+        link: "/aptitude/logical_reasoning",
     }
 ]

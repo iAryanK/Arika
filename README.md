@@ -33,3 +33,5 @@
 15. Fix job page in production: Puppeteer doesn't work on vercel in production, so trying chrome-aws-lambda with puppeteer. Added loading-provider for entire website.
 
 16. Create homepage: Arika homepage created. Jobs page temporarily removed as puppetter doesn't work on vercel hobby plan. Other fixes.
+
+17. Create AI based aptitude: Implemented dynamic route for AI based aptitude of different subjects.

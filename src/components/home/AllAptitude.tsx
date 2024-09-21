@@ -46,7 +46,7 @@ const CreateAptitude = () => {
   return (
     <div className="relative h-40 w-40">
       <div className="absolute h-40 w-40 rounded-xl border-2 border-dashed"></div>
-      <div className="absolute flex h-40 w-40 flex-col items-center justify-center gap-2 rounded-xl bg-slate-300 shadow-[2px_4px_16px_0px_rgba(255,255,255,0.5)_inset] transition-all duration-500 ease-in-out hover:ml-2 hover:mt-2 hover:opacity-80 dark:bg-slate-800 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+      <div className="absolute flex h-40 w-40 flex-col items-center justify-center gap-2 rounded-xl shadow-[2px_4px_16px_0px_rgba(0,0,0,0.08)_inset] transition-all duration-500 ease-in-out hover:ml-2 hover:mt-2 hover:bg-slate-300 hover:opacity-80 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] hover:dark:bg-slate-800">
         <Plus
           strokeWidth={1}
           size={48}
