@@ -31,3 +31,5 @@
 14. Create jobs page: Scraped data from jobs website and stored into the database. The database updates every 24 hours only if a new request comes. In this way, I overcame the use of cron jobs.
 
 15. Fix job page in production: Puppeteer doesn't work on vercel in production, so trying chrome-aws-lambda with puppeteer. Added loading-provider for entire website.
+
+16. Create homepage: Arika homepage created. Jobs page temporarily removed as puppetter doesn't work on vercel hobby plan. Other fixes.

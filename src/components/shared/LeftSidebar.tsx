@@ -5,10 +5,10 @@ import Image from "next/image";
 import { createContext, useContext, useState } from "react";
 import { redirect, usePathname } from "next/navigation";
 import Link from "next/link";
-import { SidebarLinks } from "@/constants";
 import { ThemeToggleButton } from "./ThemeToggle";
 import { Badge } from "../ui/badge";
 import ConfirmDialog from "./ConfirmDialog";
+import { SidebarLinks } from "@/constants";
 
 type SidebarContextType = {
   expanded: boolean;
@@ -122,13 +122,13 @@ export function SidebarItem({
           ></div>
         )}
 
-        {!expanded && (
+        {/* {!expanded && (
           <div
             className={`invisible absolute left-full ml-6 -translate-x-3 text-sm text-black opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100`}
           >
             <Badge variant={"secondary"}>{text}</Badge>
           </div>
-        )}
+        )} */}
       </li>
     );
   };

@@ -3,11 +3,10 @@
 import { Job } from "@/models/job.model";
 
 let chrome: any = {};
-let puppeteer;
+let puppeteer: any;
 
 if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   chrome = require("chrome-aws-lambda");
-  puppeteer = require("puppeteer-core");
 } else {
   puppeteer = require("puppeteer");
 }

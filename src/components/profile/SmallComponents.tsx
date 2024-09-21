@@ -24,7 +24,7 @@ export const ParamValue = ({
   const Item = () => (
     <div className="my-2 flex w-fit items-center">
       <p
-        className={`flex items-center gap-1 rounded-l-md p-[2px] pl-2 pr-2 text-sm font-light text-white ${className}`}
+        className={`flex items-center justify-between gap-1 rounded-l-md p-[5px] pl-2 pr-2 text-xs font-light text-white ${className}`}
       >
         {icon}
         {parameter}

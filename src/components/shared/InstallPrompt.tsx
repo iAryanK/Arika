@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import { Download } from "lucide-react";
 
 const InstallPrompt = () => {
   const [prompt, setPrompt] = useState<any>(null);
@@ -36,12 +37,15 @@ const InstallPrompt = () => {
 
   return (
     <div className={` ${showPrompt ? "block" : "hidden"}`}>
-      <Button
-        className="h-8 bg-black text-white hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/80"
+      <button
         onClick={handleInstallApp}
+        className="group relative me-2 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-teal-300 to-lime-300 p-0.5 text-sm font-medium text-gray-900 focus:outline-none group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900"
       >
-        Install
-      </Button>
+        <span className="relative flex items-center gap-2 rounded-md bg-white p-[6px] transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-gray-900 sm:p-1 sm:px-5">
+          <Download size={18} />
+          <span className="max-sm:hidden">Install</span>
+        </span>
+      </button>
     </div>
   );
 };

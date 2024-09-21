@@ -2,6 +2,7 @@ import { Highlight } from "@/components/shared/Highlight";
 import NoResult from "@/components/shared/NoResult";
 import { getUserData } from "@/lib/actions/user.action";
 import { getSession } from "@/lib/getSession";
+import { LogIn } from "lucide-react";
 import { redirect } from "next/navigation";
 
 const Page = async () => {
@@ -30,6 +31,7 @@ const Page = async () => {
       }
       link="/login"
       linkTitle="Log In"
+      linkIcon={<LogIn size={18} />}
     />
   );
 };
