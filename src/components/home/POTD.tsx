@@ -1,6 +1,5 @@
 "use client";
 
-import { getAptitudeDataFromGemini } from "@/lib/actions/aptitude.action";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Label } from "@/components/ui/label";
