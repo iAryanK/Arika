@@ -8,8 +8,15 @@ import { RadioGroup } from "@/components/ui/radio-group";
 import { useEffect, useState } from "react";
 import useCountdown from "@/hooks/useCountdown";
 import { FaStopwatch } from "react-icons/fa6";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { CircleCheckBig, CircleX, Smile } from "lucide-react";
+import router from "next/router";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 type Props = {
   params: {
@@ -191,21 +198,87 @@ const Page = ({ params }: Props) => {
 
   if (isSubmitted) {
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center gap-1">
-        <p>Your score is {marksScored}.</p>
-        <p>Thank you for submitting the test.</p>
-        <Button
-          onClick={() => {
-            setQno(0);
-            setUserResponse(Array(res.length).fill(""));
-            setIsSubmitted(false);
-            router.refresh();
-          }}
-          size={"sm"}
-          className="bg-amber-600 text-sm hover:bg-amber-500"
-        >
-          Re-attempt
-        </Button>
+      <div className="custom-scrollbar flex h-full w-full items-center justify-center gap-2 overflow-y-scroll max-md:py-16">
+        <div className="h-full w-full p-2 md:w-[70%] md:p-5">
+          <Smile
+            size={48}
+            strokeWidth={1}
+            color="orange"
+            className="transition-all duration-500 ease-in-out hover:-rotate-12 hover:scale-105"
+          />
+          <div className="space-y-2 pb-16 pt-2">
+            <div className="flex items-start justify-between gap-2 pb-2 max-md:flex-col">
+              <p className="font-space_grotesk text-lg">
+                <span className="tracking-wide">
+                  Thank you for submitting !
+                </span>{" "}
+                <br />{" "}
+                <span className="text-amber-600">
+                  You have scored {marksScored}/{res.length * 2}.
+                </span>
+              </p>
+              <Button
+                onClick={() => {
+                  setQno(0);
+                  setUserResponse(Array(res.length).fill(""));
+                  setIsSubmitted(false);
+                  router.refresh();
+                }}
+                size={"sm"}
+                className="bg-amber-600 text-sm hover:bg-amber-500"
+              >
+                Re-attempt
+              </Button>
+            </div>
+
+            <p className="rounded-lg bg-secondary p-2 text-xs md:text-sm">
+              Upsolving is the most crucial part of learning! Don&apos;t skip
+              taking a look at the detailed report below.
+            </p>
+
+            <div className="pt-5">
+              <Accordion type="single" collapsible>
+                {res.map((item, index) => (
+                  <AccordionItem
+                    value={"item-" + index}
+                    key={index}
+                    className="mb-4 border-b-0"
+                  >
+                    <AccordionTrigger className="rounded-lg p-2 shadow-[2px_4px_16px_0px_rgba(0,0,0,0.1)_inset] hover:no-underline dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset]">
+                      <div className="flex items-start justify-start gap-2">
+                        <div>
+                          {item.answer === userResponse[index] ? (
+                            <CircleCheckBig color="green" />
+                          ) : (
+                            <CircleX color="red" />
+                          )}
+                        </div>
+                        <div className="text-start text-sm md:text-base">
+                          {item.question}
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="mt-1 rounded-lg border-b p-2">
+                      <p>
+                        <span className="text-amber-800 dark:text-amber-600">
+                          correct answer:
+                        </span>{" "}
+                        {item.answer}
+                      </p>
+                      <p>
+                        <span className="text-amber-700 dark:text-amber-500">
+                          Explanation:{" "}
+                        </span>
+                        {item.explanation}
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+        <div className="h-full w-[30%] max-md:hidden"></div>
       </div>
     );
   }

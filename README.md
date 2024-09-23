@@ -35,3 +35,5 @@
 16. Create homepage: Arika homepage created. Jobs page temporarily removed as puppetter doesn't work on vercel hobby plan. Other fixes.
 
 17. Create AI based aptitude: Implemented dynamic route for AI based aptitude of different subjects.
+
+18. Create Aptitude result page: Shows result of AI based aptitude.
