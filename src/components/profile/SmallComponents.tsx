@@ -22,7 +22,7 @@ export const ParamValue = ({
   className?: string;
 }) => {
   const Item = () => (
-    <div className="my-2 flex w-fit items-center">
+    <div className="flex w-fit items-center">
       <p
         className={`flex items-center justify-between gap-1 rounded-l-md p-[5px] pl-2 pr-2 text-xs font-light text-white ${className}`}
       >
@@ -37,9 +37,11 @@ export const ParamValue = ({
 
   if (href)
     return (
-      <Link href={href} target="_blank">
-        <Item />
-      </Link>
+      <div className="w-fit">
+        <Link href={href} target="_blank">
+          <Item />
+        </Link>
+      </div>
     );
   return <Item />;
 };
