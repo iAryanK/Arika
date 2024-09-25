@@ -26,7 +26,7 @@ const AllAptitude = ({ home }: { home?: boolean }) => {
           <Link
             href={link}
             key={i}
-            className="flex h-40 w-40 flex-col items-center justify-between rounded-xl bg-slate-300 pb-5 pt-10 shadow-[2px_4px_16px_0px_rgba(255,255,255,0.5)_inset] transition-all duration-500 ease-in-out hover:scale-105 dark:bg-slate-800 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]"
+            className="flex h-40 w-40 flex-col items-center justify-between rounded-xl bg-slate-300 pb-5 pt-10 shadow-[2px_4px_16px_0px_rgba(0,0,0,0.1)_inset] transition-all duration-500 ease-in-out hover:scale-105 dark:bg-slate-800 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]"
           >
             {image}
             <div className="text-center">

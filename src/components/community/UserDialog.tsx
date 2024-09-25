@@ -18,7 +18,11 @@ const UserDialog = ({ children, data }: Props) => {
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
       <DialogContent className="custom-scrollbar h-fit max-h-96 overflow-scroll border-none">
-        <UserDetails data={data} className="bg-zinc-900" community />
+        <UserDetails
+          data={data}
+          className="bg-background dark:bg-zinc-900"
+          community
+        />
         <div className="flex w-full gap-2">
           <DialogClose asChild>
             <Button type="button" variant="secondary" className="w-full">

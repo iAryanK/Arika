@@ -56,7 +56,6 @@ const Page = ({ params }: Props) => {
 
   const handleSubmit = () => {
     setIsSubmitted(true);
-    console.log(userResponse);
     userResponse.forEach((response, index) => {
       if (response === res[index].answer) setMarksScored((prev) => prev + 2);
     });

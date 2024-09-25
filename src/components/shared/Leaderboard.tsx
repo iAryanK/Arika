@@ -8,21 +8,16 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ClipboardList } from "lucide-react";
 
 const Leaderboard = () => {
   return (
     <div>
       <Table>
-        <TableCaption>Practise Daily to shine at top 🌟</TableCaption>
+        <TableCaption className="text-nowrap">
+          Practice Daily to shine on leaderboard 🌟
+        </TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">Rank</TableHead>
@@ -77,7 +72,7 @@ const LeaderboardDialog = () => {
   return (
     <Dialog>
       <DialogTrigger>
-        <div className="absolute bottom-12 right-4 rounded-full bg-amber-400 p-4 sm:hidden">
+        <div className="absolute bottom-16 right-4 rounded-full bg-amber-400 p-4 shadow-[2px_4px_16px_0px_rgba(0,0,0,0.2)_inset] dark:bg-amber-600 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.2)_inset] sm:bottom-20 md:hidden">
           <ClipboardList size={28} />
         </div>
       </DialogTrigger>

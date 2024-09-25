@@ -24,7 +24,6 @@ const getAptitudeDataFromGemini = async (
   const result = await model.generateContent(prompt);
   const data = await result.response.text().trim().slice(7, -3);
   const jsonData = await JSON.parse(data);
-  console.log(jsonData);
   return jsonData;
 };
 

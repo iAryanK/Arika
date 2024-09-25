@@ -64,7 +64,7 @@ export const heroItems = [
 
 export const AIAptitudeItems = [
     {
-        image: <PiComputerTowerFill size={44} className="text-amber-700" />,
+        image: <PiComputerTowerFill size={44} />,
         title: "OS",
         description: "Operating System",
         link: "/aptitude/os",
@@ -94,3 +94,30 @@ export const AIAptitudeItems = [
         link: "/aptitude/logical_reasoning",
     }
 ]
+
+export const TrendingAptitudeItems = [
+    {
+        icon: "🪄",
+        bgColor: "bg-violet-700",
+        subject: "AI",
+        link: "/aptitude/ai",
+    },
+    {
+        icon: "🚀",
+        bgColor: "bg-orange-700",
+        subject: "Reasonings",
+        link: "/aptitude/logical_reasoning",
+    },
+    {
+        icon: "🔥",
+        bgColor: "bg-red-400",
+        subject: "Computer Networks",
+        link: "/aptitude/computer_networks",
+    },
+    {
+        icon: "👨‍💻",
+        bgColor: "bg-green-300",
+        subject: "Miscellaneous",
+        link: "/aptitude/miscellaneous",
+    },
+];
