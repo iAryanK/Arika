@@ -13,7 +13,7 @@ export default async function Home() {
         <div className="md:custom-scrollbar flex flex-col gap-2 px-2 pt-1 md:h-[600px] md:overflow-y-scroll">
           <AptitudeOfTheDay />
           <CodeOfTheDay />
-          <AllAptitude />
+          <AllAptitude home />
         </div>
         <ProfilePhone />
       </div>
