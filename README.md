@@ -37,3 +37,5 @@
 17. Create AI based aptitude: Implemented dynamic route for AI based aptitude of different subjects.
 
 18. Create Aptitude result page: Shows result of AI based aptitude.
+
+19. Create Aptitude page: Leaderboard UI also integrated.

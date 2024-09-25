@@ -3,19 +3,21 @@ import { Badge } from "../ui/badge";
 import Link from "next/link";
 import { AIAptitudeItems } from "@/constants";
 
-const AllAptitude = () => {
+const AllAptitude = ({ home }: { home?: boolean }) => {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between">
         <Badge className="ml-2 font-space_grotesk text-sm font-light tracking-wide">
           Aptitude
         </Badge>
-        <Badge
-          variant={"outline"}
-          className="font-space_grotesk font-light tracking-wider hover:cursor-pointer"
-        >
-          <Link href="/aptitude">View All &rarr;</Link>
-        </Badge>
+        {home && (
+          <Badge
+            variant={"outline"}
+            className="font-space_grotesk font-light tracking-wider hover:cursor-pointer"
+          >
+            <Link href="/aptitude">View All &rarr;</Link>
+          </Badge>
+        )}
       </div>
 
       <div className="flex flex-1 flex-wrap items-center justify-evenly gap-6 py-5">
