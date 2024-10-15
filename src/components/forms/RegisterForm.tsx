@@ -44,7 +44,7 @@ export function RegisterForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 space-y-3">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="mt-5 space-y-3">
         {error && (
           <p className="rounded-lg bg-zinc-950 py-1 pl-2 font-medium text-destructive">
             ⚠️ {error.toString()}
@@ -56,7 +56,7 @@ export function RegisterForm() {
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">First Name</FormLabel>
+                <FormLabel>First Name</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="Abc" {...field} />
                 </FormControl>
@@ -69,7 +69,7 @@ export function RegisterForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Last Name</FormLabel>
+                <FormLabel>Last Name</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="Xyz" {...field} />
                 </FormControl>
@@ -83,7 +83,7 @@ export function RegisterForm() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Username</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="abc_xyz" {...field} />
                 </FormControl>
@@ -97,7 +97,7 @@ export function RegisterForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Email</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl {...field}>
                   <Input placeholder="xyz@mail.com" {...field} />
                 </FormControl>
@@ -111,7 +111,7 @@ export function RegisterForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Password</FormLabel>
+                <FormLabel>Password</FormLabel>
                 <FormControl {...field}>
                   <PasswordInput
                     placeholder="••••••••"
@@ -130,8 +130,6 @@ export function RegisterForm() {
             Register &rarr;
           </LoadingButton>
         </div>
-
-        <div className="h-[1px] w-full space-y-10 bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
       </form>
     </Form>
   );

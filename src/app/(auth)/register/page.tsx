@@ -13,9 +13,9 @@ const Page = async () => {
   if (user) redirect("/");
 
   return (
-    <div className="w-full backdrop-blur-sm">
+    <div className="max-h-[80vh] w-full overflow-y-scroll rounded-xl border shadow-lg dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
       <div className="mx-auto max-w-md rounded-none p-4 md:p-8">
-        <h2 className="text-xl font-bold text-white max-md:text-center">
+        <h2 className="text-xl font-bold max-md:text-center">
           Welcome to Arika
         </h2>
         <p className="mt-2 text-sm text-neutral-300 max-md:text-center">
@@ -25,14 +25,17 @@ const Page = async () => {
           </Link>
         </p>
 
-        <RegisterForm />
-
         <div className="mt-5 space-y-4">
           <GithubAuthButton />
           <GoogleAuthButton />
         </div>
+
+        <div className="my-5 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
+
+        <RegisterForm />
       </div>
     </div>
   );
 };
+
 export default Page;

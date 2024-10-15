@@ -13,9 +13,9 @@ const Page = async () => {
   if (user) redirect("/");
 
   return (
-    <div className="w-full backdrop-blur-sm">
+    <div className="max-h-[80vh] w-full overflow-y-scroll rounded-xl border shadow-xl dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
       <div className="mx-auto max-w-md rounded-none p-4 md:p-8">
-        <h2 className="text-xl font-bold text-white max-md:text-center">
+        <h2 className="text-xl font-bold max-md:text-center">
           Welcome back to Arika
         </h2>
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300 max-md:text-center">

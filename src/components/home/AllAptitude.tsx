@@ -26,7 +26,7 @@ const AllAptitude = ({ home }: { home?: boolean }) => {
           <Link
             href={link}
             key={i}
-            className="flex h-40 w-40 flex-col items-center justify-between rounded-xl bg-slate-300 pb-5 pt-10 shadow-[2px_4px_16px_0px_rgba(0,0,0,0.1)_inset] transition-all duration-500 ease-in-out hover:scale-105 dark:bg-slate-800 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]"
+            className="flex h-40 w-40 flex-col items-center justify-between rounded-xl border pb-5 pt-10 shadow-lg transition-all duration-500 ease-in-out hover:scale-105 dark:bg-slate-800 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]"
           >
             {image}
             <div className="text-center">
@@ -46,9 +46,9 @@ export default AllAptitude;
 
 const CreateAptitude = () => {
   return (
-    <div className="relative h-40 w-40">
+    <Link href="/create-aptitude" className="relative h-40 w-40">
       <div className="absolute h-40 w-40 rounded-xl border-2 border-dashed"></div>
-      <div className="absolute flex h-40 w-40 flex-col items-center justify-center gap-2 rounded-xl shadow-[2px_4px_16px_0px_rgba(0,0,0,0.08)_inset] transition-all duration-500 ease-in-out hover:ml-2 hover:mt-2 hover:bg-slate-300 hover:opacity-80 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] hover:dark:bg-slate-800">
+      <div className="absolute flex h-40 w-40 flex-col items-center justify-center gap-2 rounded-xl transition-all duration-500 ease-in-out hover:ml-2 hover:mt-2 hover:bg-slate-300 hover:opacity-80 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] hover:dark:bg-slate-800">
         <Plus
           strokeWidth={1}
           size={48}
@@ -58,6 +58,6 @@ const CreateAptitude = () => {
           Create Aptitude
         </p>
       </div>
-    </div>
+    </Link>
   );
 };

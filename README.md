@@ -39,3 +39,5 @@
 18. Create Aptitude result page: Shows result of AI based aptitude.
 
 19. Create Aptitude page: Leaderboard UI also integrated.
+
+20. Modify auth UI: Implemented a cleaner auth UI. Used motion-primitives component. Other UI fixes.

@@ -10,7 +10,7 @@ export default async function Home() {
       <HeroCarousel />
 
       <div className="flex w-full justify-between gap-5 px-2 py-2 sm:px-5">
-        <div className="md:custom-scrollbar flex flex-col gap-2 px-2 pt-1 md:h-[600px] md:overflow-y-scroll">
+        <div className="flex flex-col gap-2 px-2 pt-1 md:h-[600px]">
           <AptitudeOfTheDay />
           <CodeOfTheDay />
           <AllAptitude home />

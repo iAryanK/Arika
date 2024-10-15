@@ -9,7 +9,7 @@ import { Code } from "@/models/code.model";
 const LeetCodeDataAPI = async (leetcode_username: string) => {
   try {
     const res = await fetch(
-      `https://alfa-leetcode-api.onrender.com/${leetcode_username}/`,
+      `${process.env.LEETCODE_API_BASE_URL}/${leetcode_username}/`,
     );
 
     const data = await res.json();
@@ -21,7 +21,7 @@ const LeetCodeDataAPI = async (leetcode_username: string) => {
     }
   } catch (error) {
     throw new Error(
-      "Unable to fetch data right now. please try after an hour.",
+      "Unable to fetch data right now. please try after a minute.",
     );
   }
 };
@@ -29,7 +29,7 @@ const LeetCodeDataAPI = async (leetcode_username: string) => {
 const LeetCodeBadgesAPI = async (leetcode_username: string) => {
   try {
     const res = await fetch(
-      `https://alfa-leetcode-api.onrender.com/${leetcode_username}/badges`,
+      `${process.env.LEETCODE_API_BASE_URL}/${leetcode_username}/badges`,
     );
 
     const data = await res.json();
@@ -41,7 +41,7 @@ const LeetCodeBadgesAPI = async (leetcode_username: string) => {
     }
   } catch (error) {
     throw new Error(
-      "Unable to fetch data right now. please try after an hour.",
+      "Unable to fetch data right now. please try after a minute.",
     );
   }
 };
