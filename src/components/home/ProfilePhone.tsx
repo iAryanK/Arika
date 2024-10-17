@@ -15,7 +15,7 @@ const ProfilePhone = async () => {
   }
 
   return (
-    <div className="relative mx-auto h-[600px] min-w-60 rounded-[2.5rem] border-[14px] border-gray-500 bg-gray-500 shadow-xl dark:border-gray-800 dark:bg-gray-800 max-md:hidden">
+    <div className="relative mx-auto h-[600px] min-w-60 max-w-fit rounded-[2.5rem] border-[14px] border-gray-500 bg-gray-500 shadow-xl dark:border-gray-800 dark:bg-gray-800 max-md:hidden">
       <div className="absolute -start-[17px] top-[124px] h-[46px] w-[3px] rounded-s-lg bg-gray-600 dark:bg-gray-800"></div>
       <div className="absolute -start-[17px] top-[178px] h-[46px] w-[3px] rounded-s-lg bg-gray-600 dark:bg-gray-800"></div>
       <div className="absolute -end-[17px] top-[142px] h-[64px] w-[3px] rounded-e-lg bg-gray-600 dark:bg-gray-800"></div>

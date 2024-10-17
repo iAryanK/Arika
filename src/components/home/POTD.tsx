@@ -9,20 +9,20 @@ import { TbBulb } from "react-icons/tb";
 import { CircleCheckBig, CircleX, Terminal } from "lucide-react";
 import { useToast } from "../ui/use-toast";
 import Link from "next/link";
-import { getPOTD } from "@/lib/actions/code.action";
 import parse from "html-react-parser";
-import { getAptitudeOfTheDay } from "@/lib/actions/aptitude.action";
+import { getPotd } from "@/lib/actions/general.action";
 
 const AptitudeOfTheDay = () => {
   const { toast } = useToast();
   const [userAns, setUserAns] = useState<string | boolean>("");
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState<any>();
   const [showExplanation, setShowExplanation] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getAptitudeOfTheDay();
-      setData(data);
+      const res = await getPotd();
+      const data = await JSON.parse(res);
+      setData(data.aptitude);
     };
     getData();
   }, []);
@@ -39,6 +39,7 @@ const AptitudeOfTheDay = () => {
     }
   };
 
+  if (!data) return <></>;
   return (
     <div className="relative my-2 h-fit w-full rounded-xl shadow-[2px_4px_16px_0px_rgba(0,0,0,0.1)_inset] backdrop-blur-sm dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
       <Badge
@@ -114,16 +115,18 @@ const AptitudeOfTheDay = () => {
 };
 
 const CodeOfTheDay = () => {
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState<any>();
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getPOTD();
-      setData(data);
+      const res = await getPotd();
+      const data = await JSON.parse(res);
+      setData(data.code);
     };
     getData();
   }, []);
 
+  if (!data) return <></>;
   return (
     <div className="relative my-2 h-fit w-full rounded-xl shadow-[2px_4px_16px_0px_rgba(0,0,0,0.1)_inset] backdrop-blur-sm dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
       <Badge
@@ -139,7 +142,7 @@ const CodeOfTheDay = () => {
           <Badge>{data.difficulty}</Badge>
           <p className="font-mono text-sm">{data.date}</p>
         </div>
-        <h3 className="text-sm font-semibold underline-offset-4">
+        <h3 className="text-sm font-semibold underline underline-offset-4">
           {data.title}
         </h3>
         <h3 className="overflow-hidden text-wrap max-sm:max-w-xs">

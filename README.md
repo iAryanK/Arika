@@ -43,3 +43,5 @@
 20. Modify auth UI: Implemented a cleaner auth UI. Used motion-primitives component. Other UI fixes.
 
 21. Fetch POTD from API: Aptitude of the day and POTD is now fetched from API. Other UI updates.
+
+22. Created db model for POTD: Storing potd in db for faster access.

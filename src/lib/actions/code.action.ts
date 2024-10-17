@@ -122,7 +122,7 @@ const createLeetcodeData = async (params: createLeetcodeParams) => {
   }
 };
 
-const getPOTD = async () => {
+const getCodeOfTheDay = async () => {
   const res = await fetch(`${process.env.LEETCODE_API_BASE_URL}/dailyQuestion`);
 
   const data = await res.json();
@@ -138,4 +138,4 @@ const getPOTD = async () => {
   return { date, link, title, question, difficulty };
 };
 
-export { LeetCodeDataAPI, createLeetcodeData, getPOTD };
+export { LeetCodeDataAPI, createLeetcodeData, getCodeOfTheDay };
