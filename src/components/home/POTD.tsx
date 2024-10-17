@@ -9,8 +9,6 @@ import { TbBulb } from "react-icons/tb";
 import { CircleCheckBig, CircleX, Terminal } from "lucide-react";
 import { useToast } from "../ui/use-toast";
 import Link from "next/link";
-import { useSessionUser } from "@/hooks/useSessionUser";
-import { getSession } from "@/lib/getSession";
 import { getPOTD } from "@/lib/actions/code.action";
 import parse from "html-react-parser";
 import { getAptitudeOfTheDay } from "@/lib/actions/aptitude.action";
