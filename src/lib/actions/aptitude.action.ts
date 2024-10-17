@@ -1,8 +1,5 @@
 "use server";
 
-import { Aptitude } from "@/models/aptitude.model";
-import { CreateAptitudeValues } from "../validations";
-
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const getAptitudeDataFromGemini = async (
@@ -30,19 +27,6 @@ const getAptitudeDataFromGemini = async (
   return jsonData;
 };
 
-const createAptitude = async (values: CreateAptitudeValues, owner: string) => {
-  try {
-    const data = await Aptitude.create({
-      ...values,
-      owner,
-    });
-    console.log("[CREATE_APTITUDE", data);
-  } catch (error) {
-    console.error("[CREATE_APTITUDE_ERROR]", error);
-    return "Failed to create aptitude";
-  }
-};
-
 const getAptitudeOfTheDay = async () => {
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -66,4 +50,4 @@ const getAptitudeOfTheDay = async () => {
   return jsonData;
 };
 
-export { getAptitudeDataFromGemini, createAptitude, getAptitudeOfTheDay };
+export { getAptitudeDataFromGemini, getAptitudeOfTheDay };
