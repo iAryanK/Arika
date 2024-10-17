@@ -10,8 +10,8 @@ type Props = {
 
 const UserCard = ({ user }: Props) => {
   return (
-    <Card className="flex items-center justify-between border-none px-4 py-2 shadow-sm hover:shadow-input dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
-      <div className="flex items-center gap-2">
+    <Card className="flex flex-col items-center justify-between gap-2 border px-4 py-4 shadow-md dark:border-none dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+      <div className="flex w-full flex-col items-center gap-2 text-center">
         <Image
           src={user.image ? user.image : "/boyface.png"}
           alt={user.username}
@@ -19,17 +19,23 @@ const UserCard = ({ user }: Props) => {
           height={50}
           className="rounded-full"
         />
-        <div className="">
+        <div className="w-4/5">
           <p>
             {user.firstName} {user.lastName}
           </p>
-          <p className="text-xs text-muted-foreground">@{user.username}</p>
+          <p className="w-full overflow-hidden text-ellipsis text-xs text-muted-foreground">
+            @{user.username}
+          </p>
         </div>
       </div>
       <UserDialog data={user}>
-        <div className="rounded-lg bg-primary px-2 py-1 font-light text-white">
-          view
-        </div>
+        <Button
+          className="w-full font-space_grotesk text-sm font-thin"
+          variant={"secondary"}
+          size={"sm"}
+        >
+          View Profile
+        </Button>
       </UserDialog>
     </Card>
   );

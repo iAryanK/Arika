@@ -37,6 +37,7 @@ export const UserDetails = async ({ data, className, community }: Props) => {
             width={100}
             height={100}
             className="h-4 w-4"
+            priority
           />
           <p className="text-xs font-light">Legacy Profile</p>
         </Banner>

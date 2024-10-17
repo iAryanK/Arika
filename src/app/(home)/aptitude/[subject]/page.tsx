@@ -61,7 +61,7 @@ const Page = ({ params }: Props) => {
     });
   };
 
-  if (res.length > 0 && !isSubmitted)
+  if (res.length > 0 && !isSubmitted) {
     return (
       <section className="flex h-full w-full overflow-y-scroll">
         <div className="custom-scrollbar top-0 flex h-full w-full flex-col gap-2 overflow-y-scroll p-2 pb-20 max-md:pt-16 md:w-[70%] md:pl-5 lg:justify-between">
@@ -183,7 +183,7 @@ const Page = ({ params }: Props) => {
               {res.map((_, index) => (
                 <div
                   key={index}
-                  className={`flex h-8 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-lg font-semibold hover:bg-primary ${qno === index ? "bg-primary" : "bg-secondary"}`}
+                  className={`flex h-8 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-lg font-semibold hover:bg-primary hover:text-white ${qno === index ? "bg-primary text-white" : "bg-secondary"}`}
                   onClick={() => setQno(index)}
                 >
                   {index + 1}
@@ -194,6 +194,7 @@ const Page = ({ params }: Props) => {
         </div>
       </section>
     );
+  }
 
   if (isSubmitted) {
     return (

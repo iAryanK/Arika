@@ -29,10 +29,11 @@ const Topbar = ({ session }: { session: any }) => {
           width={32}
           alt="logo"
           quality={100}
+          priority
         />
-        <p className="max-xs:hidden rounded-md px-2 font-mono text-lg font-light">
+        <h1 className="max-xs:hidden rounded-md px-2 font-mono text-lg font-light">
           {routeName()}
-        </p>
+        </h1>
       </Link>
 
       <div className="flex items-center gap-2 hover:cursor-pointer">

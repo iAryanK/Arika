@@ -54,7 +54,11 @@ export function LoginForm() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl {...field}>
-                  <Input placeholder="xyz@mail.com" {...field} />
+                  <Input
+                    autoComplete="email"
+                    placeholder="xyz@mail.com"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -14,6 +14,7 @@ const NoResult = ({ title, description, link, linkTitle, linkIcon }: Props) => {
   return (
     <div className="flex h-full w-full flex-col items-center p-5 max-sm:mt-20 sm:justify-center">
       <Image
+        priority
         src="/logo.png"
         alt="No result illustration"
         width={200}

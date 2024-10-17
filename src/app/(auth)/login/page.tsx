@@ -13,7 +13,7 @@ const Page = async () => {
   if (user) redirect("/");
 
   return (
-    <div className="max-h-[80vh] w-full overflow-y-scroll rounded-xl border shadow-xl dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+    <div className="mx-2 max-h-[80vh] w-full overflow-y-scroll rounded-xl border shadow-xl dark:bg-slate-950 dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
       <div className="mx-auto max-w-md rounded-none p-4 md:p-8">
         <h2 className="text-xl font-bold max-md:text-center">
           Welcome back to Arika

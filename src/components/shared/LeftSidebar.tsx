@@ -39,6 +39,7 @@ export default function Sidebar({
               width={48}
               alt="logo"
               quality={100}
+              priority
             />
             <button
               aria-expanded={expanded}

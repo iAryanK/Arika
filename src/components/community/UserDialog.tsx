@@ -16,7 +16,7 @@ type Props = {
 const UserDialog = ({ children, data }: Props) => {
   return (
     <Dialog>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger className="w-full">{children}</DialogTrigger>
       <DialogContent className="custom-scrollbar h-fit max-h-96 overflow-scroll border-none">
         <UserDetails
           data={data}

@@ -122,4 +122,20 @@ const createLeetcodeData = async (params: createLeetcodeParams) => {
   }
 };
 
-export { LeetCodeDataAPI, createLeetcodeData };
+const getPOTD = async () => {
+  const res = await fetch(`${process.env.LEETCODE_API_BASE_URL}/dailyQuestion`);
+
+  const data = await res.json();
+
+  const date = data.data.activeDailyCodingChallengeQuestion.date;
+  const link = data.data.activeDailyCodingChallengeQuestion.link;
+  const title = data.data.activeDailyCodingChallengeQuestion.question.title;
+  const question =
+    data.data.activeDailyCodingChallengeQuestion.question.content;
+  const difficulty =
+    data.data.activeDailyCodingChallengeQuestion.question.difficulty;
+
+  return { date, link, title, question, difficulty };
+};
+
+export { LeetCodeDataAPI, createLeetcodeData, getPOTD };

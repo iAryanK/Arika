@@ -11,6 +11,7 @@ const Loader = () => {
           height={100}
           alt="Hero"
           className="absolute left-4 top-4 z-10 mx-auto h-12 w-12 object-cover"
+          priority
         />
       </div>
     </div>
