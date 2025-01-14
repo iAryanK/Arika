@@ -21,7 +21,7 @@ const AllAptitude = ({ home }: { home?: boolean }) => {
       </div>
 
       <div className="flex flex-1 flex-wrap items-center justify-evenly gap-6 py-5">
-        <CreateAptitude />
+        {/* <CreateAptitude /> */}
         {AIAptitudeItems.map(({ image, link, title }, i) => (
           <Link
             href={link}
