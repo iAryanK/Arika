@@ -29,37 +29,27 @@ const Leaderboard = () => {
         <TableBody>
           <TableRow>
             <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
-            <TableCell className="text-right">100</TableCell>
+            <TableCell>Aryan</TableCell>
+            <TableCell className="text-right">500</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
-            <TableCell className="text-right">100</TableCell>
+            <TableCell className="font-medium">02</TableCell>
+            <TableCell>Jyotika</TableCell>
+            <TableCell className="text-right">450</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
-            <TableCell className="text-right">100</TableCell>
+            <TableCell className="font-medium">03</TableCell>
+            <TableCell>Bina</TableCell>
+            <TableCell className="text-right">300</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
-            <TableCell className="text-right">100</TableCell>
+            <TableCell className="font-medium">04</TableCell>
+            <TableCell>Banta</TableCell>
+            <TableCell className="text-right">150</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
-            <TableCell className="text-right">100</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
-            <TableCell className="text-right">100</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="font-medium">01</TableCell>
-            <TableCell>Arika</TableCell>
+            <TableCell className="font-medium">05</TableCell>
+            <TableCell>Mani</TableCell>
             <TableCell className="text-right">100</TableCell>
           </TableRow>
         </TableBody>

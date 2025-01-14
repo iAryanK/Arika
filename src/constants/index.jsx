@@ -14,19 +14,9 @@ export const SidebarLinks = [
         label: "Community",
     },
     {
-        imgURL: <CodeXml />,
-        route: "/code",
-        label: "Code",
-    },
-    {
         imgURL: <Brain />,
         route: "/aptitude",
         label: "Aptitude",
-    },
-    {
-        imgURL: <BriefcaseBusiness />,
-        route: "/jobs",
-        label: "Jobs",
     },
     {
         imgURL: <Smile />,
